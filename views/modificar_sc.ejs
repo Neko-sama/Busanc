@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Registros - Busanc</title>
+    <!-- BOOTSTRAP CORE STYLE  -->
+    <link href="./../assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONT AWESOME ICONS  -->
+    <link href="./../assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE  -->
+    <link href="./../assets/css/style.css" rel="stylesheet" />
+    <link href="./../assets/css/busanc.css" rel="stylesheet" />
+    <title>Home - Busanc</title>
+
+    <link href="./../assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <link href="./../assets/css/font-awesome.css" rel="stylesheet" />
+
+    <link href="./../assets/css/style.css" rel="stylesheet" />
+    <link href="./../assets/css/busanc.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <script>
+
+function reply_click(clicked_id)
+{
+    var url = clicked_id
+    url = "/editar_registros.html/editar/" + url;
+    window.location.replace(url);
+}
+    </script>
+
+</head>
+<body>
+    <% include header.ejs %>
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="page-head-line">
+                        Solicitud de cliente
+                        <a href="/registros.html">
+                            <button class="btn btn-primary " style="float: right;margin-right: 5px;margin-top: -2px;">Volver</button>
+                        </a>
+                    </h1>
+                </div>
+
+            </div>
+
+
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="Compose-Message">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                SOLICITUD DE CLIENTE
+                            </div>
+                            <form action="editar_solicitud/" method="post" class="panel-body">
+
+                                <table style="width:100%">
+                                    <tr>
+                                        <th style="width: 539px;">Nueva solicitud de proyecto </th>
+                                        <th>Entrada del proyecto</th>
+                                    </tr>
+                                    <tr>
+                                        <td><label>Fecha de entrega de Cotización  : </label></td>
+                                        <td><label>Requisitos funcionales : </label></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input required type="date" name="fecham" class="control_input" value="<%=resultado29%>" /></td>
+                                        <td><input required type="text" name="reqfun" class="control_input" value="<%=resultado7%>"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label>Nombre del Proyecto  : </label></td>
+                                        <td><label>Requisitos de desempeño : </label></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input required type="text" name="nproyecto" class="control_input" value="<%=resultado31%>"/></td>
+                                        <td><input required type="text" name="reqdes" class="control_input" value="<%=resultado8%>" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label>Nombre del Cliente  :  </label></td>
+                                        <td><label for="reqnor">Requisito normativo : </label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select id="cliente1" class="js-example-basic-multiple" name="ncliente" >
+                                                <% for(var i=0; i<num; i++){ %>
+                                                    <% if(resultado3 == arr_clientes[i]) {%>
+                                                    <option  selected="selected" value="<%=arr_clientes[i]%>"><%=arr_clientes[i]%></option>
+                                                    <%} else{ %>
+                                                    <option value="<%=arr_clientes[i]%>"><%=arr_clientes[i]%></option>
+                                                    <% } %>
+                                                <%} %>
+                                            </select>
+                                        </td>
+                                        <td><input required type="text" name="reqnor" class="control_input" value="<%=resultado9 %>"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td><label>Requisitos legales :  </label></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td><input required type="text" name="reqleg" class="control_input" value="<%=resultado10 %>"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label>Area :  </label></td>
+                                        <td><label>Requisitos reglamentarios:  </label></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input required type="text" name="area" class="control_input" value="<%=resultado33 %>"/></td>
+                                        <td><input required type="text" name="reqreg" class="control_input" value="<%=resultado11 %>"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><br></td>
+                                        <td><br></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label>Fecha Visita :  </label></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input required type="date" name="fechav" class="control_input" value="<%=resultado34 %>"/></td>
+                                        <td>
+                                            
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><br></td>
+                                        <td><br></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label>Descripción y Especificaciones tecnicas del proyecto</label></td>
+                                        <td><label>Potenciales fallas  </label></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input required type="text" name="esptec" class="control_input" value="<%=resultado35 %>" /></td>
+                                        <td><input required type="text" name="potfal" class="control_input" value="<%=resultado28 %>" /> </td>
+                                    </tr>
+
+                                </table>
+
+
+
+                                <hr />
+                                <input required type="submit" class="btn btn-success" value="Guardar"></input>&nbsp;
+                            </form>
+                            <br />
+                            <div class="panel-footer text-muted">
+                                <strong>Nota : </strong>Se recuerda que todos los mensajes se registran, favor de no llenar de spam.
+                                <br />
+                                <strong>Nota : </strong>Se recuerda que crear un nuevo proyecto notificara por correo a los responsables correspondientes.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    &copy; 2016 BUSANC | Por : Diego Eduardo Escobar Boehmwald
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <script src="./../assets/js/jquery-1.11.1.js"></script>
+    <script src="./../assets/js/bootstrap.js"></script>
+
+
+</body>
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+<script type="text/javascript">
+$(".js-example-basic-multiple").select2();
+</script>
+
+<!-- cdn for modernizr, if you haven't included it already -->
+<script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+<!-- polyfiller file to detect and load polyfills -->
+<script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
+<script>
+  webshims.setOptions('waitReady', false);
+  webshims.setOptions('forms-ext', {types: 'date'});
+  webshims.polyfill('forms forms-ext');
+</script>

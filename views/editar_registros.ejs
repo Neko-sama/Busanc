@@ -1,0 +1,2160 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>Registros - Busanc</title>
+    <!-- BOOTSTRAP CORE STYLE  -->
+    <link href="./../assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONT AWESOME ICONS  -->
+    <link href="./../assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE  -->
+    <link href="./../assets/css/style.css" rel="stylesheet" />
+    <link href="./../assets/css/busanc.css" rel="stylesheet" />
+     <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+<body>
+    <% include header.ejs %>
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="page-head-line">Editar Indice - Registro N°  <%=ids %> 
+                        <a href="/modificacion.html">
+                            <button class="btn btn-primary " style="float: right;margin-right: 5px;margin-top: -2px;">Volver</button>
+                        </a>
+                    </h4>
+                </div>
+            </div>
+
+
+            <!-- INICIO   INDICE -->
+            <% if(modif == 0) { %>
+                    <form action="/editar_registros.html/alter/0" method="post" class="panel-body">
+                    <fieldset>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                             Indice
+                        </div>
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered table-striped">
+                                
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                          <tr>
+    <th class="tabla_4">PROYECTO</th>
+    <th colspan="5"><input type="text" name="proyecto"  class="form-control"  value="<%=resultado201 %>"  /></th>
+  </tr>
+  <tr>
+    <td class="tabla_4">CLIENTE</td>
+    <td colspan="2"><%=resultado202 %> </td>
+    <td class="tabla_4">CODIGO PROYECTO</td>
+    <td colspan="2" style="color: red; font-weight: bold;"><input type="text" name="cod_proyecto"  class="form-control"  value="<%=resultado204 %>"  /></td>
+  </tr>
+  <tr>
+    <td class="tabla_4" colspan="2">FECHA INGRESO PROYECTO:</td>
+    <td><input type="date" name="fechai"  class="form-control"  value="<%=resultado203 %>"  /></td>
+    <td class="tabla_4">N° SOLICITUD CLIENTE</td>
+    <td colspan="2" style="color: red; font-weight: bold;"><%=resultado1%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"><label >Estado:  </label>
+        </td>
+    <td><select name="cambio_estados" id="cambio_estados" onchange="change(this)">
+    <option value="2">Anulado</option>
+    <option value="1">Nuevo Registro</option>
+    <option value="0">Pendiente</option>
+    </select></td>
+
+    <td class="tabla_4">
+        <label>Se Envia Correo:  </label>
+        </td>
+    <td>
+        <select name="Correo" id="fot" onchange="change(this)">
+            <option value="1">SI</option>
+            <option value="0" selected="selected">NO</option>
+        </select>
+    </td>
+  </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                     
+                      <input type="submit" class="btn btn-success" value="Guardar"></input>&nbsp;
+                    </fieldset>
+                </form>   
+                     <% } %>
+                     <!--  FINAL  INDICE -->
+
+            <!--   Entradas de proyecto  -->
+                    <% if(modif == 1) { %>
+                    <form action="/editar_registros.html/alter/1" method="post" class="panel-body">
+                    <fieldset>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            1) Entradas de Proyecto  (Detección de necesidades)
+
+                        </div>
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered table-striped">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td class="tabla_1">
+                                                <span style="font-weight:bold">
+                                                    Requisitos funcionales :
+                                                </span>
+                                            </td>
+                                            <td><input type="text" name="req_funcionales"  class="form-control"  value="<%=resultado2 %>"  /> </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="tabla_1">
+                                                <span style="font-weight:bold">
+                                                    Requisitos de desempeño :
+                                                </span>
+                                            </td>
+                                            <td><input type="text" name="req_desempeño"  class="form-control"  value="<%=resultado3 %>"  /> </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="tabla_1">
+                                                <span style="font-weight:bold">
+                                                    Requisitos normativo :
+                                                </span>
+                                            </td>
+                                            <td><input type="text" name="req_normativo"  class="form-control"  value="<%=resultado4 %>"  />  </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="tabla_1">
+                                                <span style="font-weight:bold">
+                                                    Requisitos legales :
+                                                </span>
+                                            </td>
+                                            <td><input type="text" name="req_legales"  class="form-control"  value="<%=resultado5 %>"  /> </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="tabla_1">
+                                                <span style="font-weight:bold">
+                                                    Requisitos reglamentarios :
+                                                </span>
+                                            </td>
+                                            <td><input type="text" name="req_reglamentarios"  class="form-control"  value="<%=resultado6 %>"  /> </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Muestra fisica:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                
+
+                                                <% if (resultado7 == "TRUE"){ %>
+                                                <select name="muestra_fis" id="muestra_fis">
+                                                <option value ="1" selected="selected">SI</option>
+                                                <option value ="0">NO</option>
+                                                <option value ="NULL">NAP</option>
+                                                </select>
+                                                <% } %>
+                                                <% if (resultado7 == "FALSE"){ %>
+                                                <select name="muestra_fis" id="muestra_fis">
+                                                <option value ="1" >SI</option>
+                                                <option value ="0" selected="selected">NO</option>
+                                                <option value ="NULL">NAP</option>
+                                                </select>
+                                                <% } %>
+                                                <% if (resultado7 == "NULL" || resultado7 == "NAP"){ %>
+                                                <select name="muestra_fis" id="muestra_fis">
+                                                <option value ="1">SI</option>
+                                                <option value ="0">NO</option>
+                                                <option value ="NULL" selected="selected">NAP</option>
+                                                </select>
+                                                <% } %>
+                                                
+                                            </td>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Enviado por:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <input type="text" name="env_fis"  class="form-control"  value="<%=resultado8 %>"  />  
+                                            </td>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Fecha:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <input type="date" name="fecha_fis"  class="form-control"  value="<%=resultado9 %>"  /> 
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Fotografias:
+                                                </span>
+                                            </td>
+                                            <td>
+                                            
+                                                <% if (resultado10 == "TRUE"){ %>
+                                                <select name="fotografias" id="fotografias">
+                                                <option value ="1" selected="selected">SI</option>
+                                                <option value ="0">NO</option>
+                                                <option value ="NULL">NAP</option>
+                                                </select>
+                                                <% } %>
+                                                <% if (resultado10 == "FALSE"){ %>
+                                                <select name="fotografias" id="fotografias">
+                                                <option value ="1" >SI</option>
+                                                <option value ="0" selected="selected">NO</option>
+                                                <option value ="NULL">NAP</option>
+                                                </select>
+                                                <% } %>
+                                                <% if (resultado10 == "NULL" || resultado10 == "NAP"){ %>
+                                                <select name="fotografias" id="fotografias">
+                                                <option value ="1">SI</option>
+                                                <option value ="0">NO</option>
+                                                <option value ="NULL" selected="selected">NAP</option>
+                                                </select>
+                                                <% } %>
+                                            </td>
+                                            <td class="tabla_2"> 
+                                                <span style="font-weight:bold">
+                                                    Tomadas por:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <input type="text" name="tomadas_fot"  class="form-control"  value="<%=resultado11 %>"  />  
+                                            </td>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Fecha:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <input type="date" name="fecha_fot"  class="form-control"  value="<%=resultado12 %>"  /> 
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Planos Adjuntos:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <% if (resultado13 == "TRUE"){ %>
+                                                <select name="planos_adj" id="planos_adj">
+                                                <option value ="1" selected="selected">SI</option>
+                                                <option value ="0">NO</option>
+                                                <option value ="NULL">NAP</option>
+                                                </select>
+                                                <% } %>
+                                                <% if (resultado13 == "FALSE"){ %>
+                                                <select name="planos_adj" id="planos_adj">
+                                                <option value ="1" >SI</option>
+                                                <option value ="0" selected="selected">NO</option>
+                                                <option value ="NULL">NAP</option>
+                                                </select>
+                                                <% } %>
+                                                <% if (resultado13 == "NULL" || resultado13 == "NAP"){ %>
+                                                <select name="planos_adj" id="planos_adj">
+                                                <option value ="1">SI</option>
+                                                <option value ="0">NO</option>
+                                                <option value ="NULL" selected="selected">NAP</option>
+                                                </select>
+                                                <% } %>
+                                            </td>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Enviado por:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <input type="text" name="env_adj"  class="form-control"  value="<%=resultado14 %>"  /> 
+                                            </td>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Fecha:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <input type="date" name="fecha_adj"  class="form-control"  value="<%=resultado15 %>"  />  
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Levantamientos y/o Medidas:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                
+                                                <% if (resultado16 == "TRUE"){ %>
+                                                <select name="levantamiento" id="levantamiento">
+                                                <option value ="1" selected="selected">SI</option>
+                                                <option value ="0">NO</option>
+                                                <option value ="NULL">NAP</option>
+                                                </select>
+                                                <% } %>
+                                                <% if (resultado16 == "FALSE"){ %>
+                                                <select name="levantamiento" id="levantamiento">
+                                                <option value ="1" >SI</option>
+                                                <option value ="0" selected="selected">NO</option>
+                                                <option value ="NULL">NAP</option>
+                                                </select>
+                                                <% } %>
+                                                <% if (resultado16 == "NULL" || resultado16 == "NAP"){ %>
+                                                <select name="levantamiento" id="levantamiento">
+                                                <option value ="1">SI</option>
+                                                <option value ="0">NO</option>
+                                                <option value ="NULL" selected="selected">NAP</option>
+                                                </select>
+                                                <% } %>
+                                            </td>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Enviado por:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <input type="text" name="env_lev"  class="form-control"  value="<%=resultado17 %>"  /> 
+                                            </td>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Fecha:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <input type="date" name="fecha_lev"  class="form-control"  value="<%=resultado18 %>"  /> 
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Mail de Respaldo:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                
+                                                
+                                                <% if (resultado206 == "TRUE"){ %>
+                                                <select name="mail_res" id="mail_res">
+                                                <option value ="1" selected="selected">SI</option>
+                                                <option value ="0">NO</option>
+                                                <option value ="NULL">NAP</option>
+                                                </select>
+                                                <% } %>
+                                                <% if (resultado206 == "FALSE"){ %>
+                                                <select name="mail_res" id="mail_res">
+                                                <option value ="1" >SI</option>
+                                                <option value ="0" selected="selected">NO</option>
+                                                <option value ="NULL">NAP</option>
+                                                </select>
+                                                <% } %>
+                                                <% if (resultado206 == "NULL" || resultado206 == "NAP"){ %>
+                                                <select name="mail_res" id="mail_res">
+                                                <option value ="1">SI</option>
+                                                <option value ="0">NO</option>
+                                                <option value ="NULL" selected="selected">NAP</option>
+                                                </select>
+                                                <% } %>
+                                            </td>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Enviado por:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <input type="text" name="env_mail" class="form-control" value="<%=resultado207 %>" />
+                                            </td>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Fecha:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <input type="date" name="fecha_mail" class="form-control" value="<%=resultado208 %>" />
+                                            </td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td class="tabla_3">
+                                                <span style="font-weight:bold">
+                                                    Descripcion de especificaciones tecnicas requeridas :
+                                                </span>
+                                            </td>
+                                            <td><input type="text" name="descripcion"  class="form-control"  value="<%=resultado19 %>"  />  </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="tabla_3">
+                                                <span style="font-weight:bold">
+                                                    Potenciales fallas :
+                                                </span>
+                                            </td>
+                                            <td><input type="text" name="fallas_pot"  class="form-control"  value="<%=resultado20 %>"  />  </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+					                      <input type="submit" class="btn btn-sucess" value="Guardar"></input>&nbsp;
+                    </fieldset>
+                </form> 
+                     
+                <% } %>
+<!--  Entradas de proyecto  -->
+
+
+<!--    Planificacion de Proyecto  (Planificacion Diseño de Planos) -->
+					<% if(modif == 21) { %>
+                    <form action="/editar_registros.html/alter/21" method="post" class="panel-body">
+                    <fieldset>
+                    
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            2.1) Planificacion de Proyecto  (Planificacion Diseño de Planos)
+
+                        </div>
+                        
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered table-striped">
+                                
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                          <tr>
+    <th class="tabla_4"colspan="3">Fecha de Inicio:<br></th>
+    <td colspan="2"><input type="date" name="fechai"  class="form-control"  value="<%=resultado21 %>"/></td>
+    <th class="tabla_4"colspan="3">Fecha de Termino:<br></th>
+    <td colspan="2"><input type="date" name="fechat"  class="form-control"  value="<%=resultado22 %>"/></td>
+  </tr>
+  <tr>
+    <th class="tabla_4"colspan="2">Nivel de Complejidad:<br></th>
+    <th class="tabla_4">Ing. Conceptual:</th>
+    <td>
+    <% if (resultado23 == "TRUE"){ %>
+    <select name="ing_conceptual" id="ing_conceptual">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado23 == "FALSE"){ %>
+    <select name="ing_conceptual" id="ing_conceptual">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado23 == "NULL" || resultado23 == "NAP"){ %>
+    <select name="ing_conceptual" id="ing_conceptual">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+    <th class="tabla_4">Ing. Basica</th>
+    <td>
+    <% if (resultado24 == "TRUE"){ %>
+    <select name="ing_basaica" id="ing_basaica">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado24 == "FALSE"){ %>
+    <select name="ing_basaica" id="ing_basaica">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado24 == "NULL" || resultado24 == "NAP"){ %>
+    <select name="ing_basaica" id="ing_basaica">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+
+    <th class="tabla_4">Ing.Detalles</th>
+    <td>
+    <% if (resultado25 == "TRUE"){ %>
+    <select name="ing_detalles">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado25 == "FALSE"){ %>
+    <select name="ing_detalles">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado25 == "NULL"  || resultado25 == "NAP"){ %>
+    <select name="ing_detalles">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+    <th class="tabla_4">3D<br></th>
+    <td>
+    <% if (resultado26 == "TRUE"){ %>
+    <select name="c3d">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado26 == "FALSE"){ %>
+    <select name="c3d">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado26 == "NULL" || resultado26 == "NAP"){ %>
+    <select name="c3d">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+  </tr>
+  <tr>
+    <th class="tabla_4"rowspan="2">Responsables:</th>
+    <td colspan="3"><input type="text" name="sup_ing"  class="form-control"  value="<%=resultado27 %>"/></td>
+    <td colspan="3"><input type="text" name="proyectista"  class="form-control"  value="<%=resultado28 %>"/></td>
+    <td colspan="3"><input type="text" name="dibujante"  class="form-control"  value="<%=resultado29 %>"/></td>
+  </tr>
+  <tr>
+    <th class="tabla_4"colspan="3">Supervisor Ing</th>
+    <th class="tabla_4"colspan="3">Proyectista</th>
+    <th class="tabla_4"colspan="3">Dibujante</th>
+  </tr>
+  <tr>
+    <th class="tabla_4"colspan="3">Recursos Internos o Externos Requeridos:<br></th>
+    <td colspan="7"><input type="text" name="recursos_int"  class="form-control"  value="<%=resultado30 %>"/></td>
+  </tr>
+  <tr>
+    <th class="tabla_4"colspan="3">Informacion Documentada Adicional<br></th>
+    <td colspan="7"><input type="text" name="inf_documentada"  class="form-control"  value="<%=resultado31 %>"/></td>
+  </tr>
+  <tr>
+    <th class="tabla_4"colspan="2" rowspan="2">Req. Adicionales Para<br>Diseño de Planos:<br></th>
+    <th class="tabla_4">Bosquejo de Producto<br></th>
+    <td>
+    <% if (resultado32 == "TRUE"){ %>
+    <select name="req_bosq">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado32 == "FALSE"){ %>
+    <select name="req_bosq">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado32 == "NULL" || resultado32 == "NAP"){ %>
+    <select name="req_bosq">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+    <th class="tabla_4">Ing. Especifica<br></th>
+    <td>
+    <% if (resultado33 == "TRUE"){ %>
+    <select name="req_lev">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado33 == "FALSE"){ %>
+    <select name="req_lev">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado33 == "NULL"  || resultado33 == "NAP"){ %>
+    <select name="req_lev">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+    
+    <th class="tabla_4"colspan="2" rowspan="2">ENSAYOS<br>ESPECIALES:<br></th>
+    <td>
+    <% if (resultado34 == "TRUE"){ %>
+    <select name="req_planos">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado34 == "FALSE"){ %>
+    <select name="req_planos">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado34 == "NULL"  || resultado34 == "NAP"){ %>
+    <select name="req_planos">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+  </tr>
+  <tr>
+    <th class="tabla_4">Levntamientos de Terreno:<br></th>
+    <td>
+    <% if (resultado35 == "TRUE"){ %>
+    <select name="req_descripcion">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado35 == "FALSE"){ %>
+    <select name="req_descripcion">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado35 == "NULL" || resultado35 == "NAP"){ %>
+    <select name="req_descripcion">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+    <th class="tabla_4">Descripcion</th>
+    <td>
+    <% if (resultado36 == "TRUE"){ %>
+    <select name="req_ensayos">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado36 == "FALSE"){ %>
+    <select name="req_ensayos">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado36 == "NULL"  || resultado36 == "NAP"){ %>
+    <select name="req_ensayos">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+  </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+					                      <input type="submit" class="btn btn-success" value="Guardar"></input>&nbsp;
+                    </fieldset>
+                </form> 
+                     
+                    <% } %>
+
+                    <!--  Planificacion de Proyecto  (Planificacion Diseño de Planos)  -->
+
+                    <!--    Planificacion de Proyecto  (Planificacion Diseño de Compuestos) -->
+
+                    <% if(modif == 22) { %>
+
+                    <form action="/editar_registros.html/alter/22" method="post" class="panel-body">
+                    <fieldset>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            2.2) Planificacion de Proyecto  (Planificacion Diseño de Compuestos)
+
+                        </div>
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered table-striped">
+                                
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                          <tr>
+    <th class="tabla_4"colspan="3">Fecha de Inicio:<br></th>
+    <td colspan="2"><input type="date" name="fechai"  class="form-control"  value="<%=resultado37 %>"  /></td>
+    <th class="tabla_4"colspan="3">Fecha de Termino:<br></th>
+    <td colspan="2"><input type="date" name="fechat"  class="form-control"  value="<%=resultado38 %>"  /></td>
+  </tr>
+  <tr>
+    <th class="tabla_4"colspan="2">Nivel de Complejidad:<br></th>
+    <th class="tabla_4">Desarrollo nuevo compuesto:</th>
+    <td>
+    <% if (resultado39 == "TRUE"){ %>
+    <select name="nc_desarrollo">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado39 == "FALSE"){ %>
+    <select name="nc_desarrollo">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado39 == "NULL"  || resultado39 == "NAP"){ %>
+    <select name="nc_desarrollo">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+    <th class="tabla_4">Mejora compuesto en eso</th>
+    <td>
+    <% if (resultado40 == "TRUE"){ %>
+    <select name="nc_mejora">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado40 == "FALSE"){ %>
+    <select name="nc_mejora">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado40 == "NULL"  || resultado40 == "NAP"){ %>
+    <select name="nc_mejora">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+    <th class="tabla_4">Utilizacion compuesto codificado</th>
+    <td>
+    <% if (resultado41 == "TRUE"){ %>
+    <select name="nc_utilizacion">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado41 == "FALSE"){ %>
+    <select name="nc_utilizacion">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado41 == "NULL" || resultado41 == "NAP"){ %>
+    <select name="nc_utilizacion">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+    <th class="tabla_4">No es factible<br></th>
+    <td>
+    <% if (resultado42 == "TRUE"){ %>
+    <select name="nc_factible">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado42 == "FALSE"){ %>
+    <select name="nc_factible">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado42 == "NULL" || resultado42 == "NAP"){ %>
+    <select name="nc_factible">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+  </tr>
+  <tr>
+    <th class="tabla_4"rowspan="2">Responsables:</th>
+    <td colspan="3"><input type="text" name="res_pu"  class="form-control"  value="<%=resultado43 %>"  /></td>
+    <td colspan="3"><input type="text" name="res_gomas"  class="form-control"  value="<%=resultado44 %>"  /></td>
+    <td colspan="3"><input type="text" name="res_produccion"  class="form-control"  value="<%=resultado45 %>"  /></td>
+  </tr>
+  <tr>
+    <th class="tabla_4"colspan="3">Jefe seccion PU</th>
+    <th class="tabla_4"colspan="3">Jefe seccion Gomas</th>
+    <th class="tabla_4"colspan="3">Gerente Produccion</th>
+  </tr>
+  <tr>
+    <th class="tabla_4"colspan="3">Recursos Internos o Externos Requeridos:<br></th>
+    <td colspan="7"><input type="text" name="recursos_int"  class="form-control"  value="<%=resultado46 %>"  /></td>
+  </tr>
+  <tr>
+    <th class="tabla_4"colspan="3">Informacion Documentada Adicional<br></th>
+    <td colspan="7"><input type="text" name="inf_documentada"  class="form-control"  value="<%=resultado47 %>"  /></td>
+  </tr>
+  <tr>
+    <th class="tabla_4"colspan="2" rowspan="2">Req. Adicionales Para<br>Diseño de Compuestos:<br></th>
+    <th class="tabla_4">Levantamiento Terreno<br></th>
+    <td>
+    <% if (resultado48 == "TRUE"){ %>
+    <select name="req_terr">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado48 == "FALSE"){ %>
+    <select name="req_terr">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado48 == "NULL"  || resultado48 == "NAP"){ %>
+    <select name="req_terr">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+    <th class="tabla_4">Especificacion Tecnica<br></th>
+    <td>
+    <% if (resultado49 == "TRUE"){ %>
+    <select name="req_mol">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado49 == "FALSE"){ %>
+    <select name="req_mol">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado49 == "NULL" || resultado49 == "NAP"){ %>
+    <select name="req_mol">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+    <th class="tabla_4"colspan="2" rowspan="2">ENSAYOS<br>ESPECIALES:<br></th>
+    <td colspan="2" rowspan="2">
+    <% if (resultado50 == "TRUE"){ %>
+    <select name="req_tec">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado50 == "FALSE"){ %>
+    <select name="req_tec">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado50 == "NULL" || resultado50== "NAP"){ %>
+    <select name="req_tec">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+  </tr>
+  <tr>
+    <th class="tabla_4">Fabricacion de Moldes:<br></th>
+    <td>
+    <% if (resultado51 == "TRUE"){ %>
+    <select name="req_lab">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado51 == "FALSE"){ %>
+    <select name="req_lab">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado51 == "NULL" || resultado51 == "NAP"){ %>
+    <select name="req_lab">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+    <th class="tabla_4">Analisis de Laboratorio</th>
+    <td>
+    <% if (resultado52 == "TRUE"){ %>
+    <select name="req_ens">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado52 == "FALSE"){ %>
+    <select name="req_ens">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado52 == "NULL" || resultado52 == "NAP"){ %>
+    <select name="req_ens">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+  </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+					                      <input type="submit" class="btn btn-success" value="Guardar"></input>&nbsp;
+                    </fieldset>
+                </form> 
+                     <!--  Planificacion de Proyecto  (Planificacion Diseño de Compuestos)  -->
+
+                    <% } %>
+
+                    <% if(modif == 31) { %>
+                    <form action="/editar_registros.html/alter/31" method="post" class="panel-body">
+                    <fieldset>
+
+                    <!--    Diseño de Proyecto  (Diseño de Planos) -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            3.1) Diseño de Proyecto  (Diseño de Planos)
+
+                        </div>
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered table-striped">
+                                
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                          <tr>
+    <th class="tabla_4" colspan="2">Fecha Inicio<br></th>
+    <th><input type="date" name="fechai"  class="form-control"  value="<%=resultado53 %>"  /></th>
+    <th class="tabla_4" colspan="2">Fecha termino<br></th>
+    <th><input type="date" name="fechat"  class="form-control"  value="<%=resultado54 %>"  /></th>
+  </tr>
+  <tr>
+    <td class="tabla_4" >Control N°<br></td>
+    <td class="tabla_4" >1 <input type="checkbox" name="vehicle" value="Bike" style="margin-left: 20px;"></td>
+    <td class="tabla_4" >2 <input type="checkbox" name="vehicle" value="Bike" style="margin-left: 20px;"></td>
+    <td class="tabla_4" >3 <input type="checkbox" name="vehicle" value="Bike" style="margin-left: 20px;"></td>
+    <td class="tabla_4" >4 <input type="checkbox" name="vehicle" value="Bike" style="margin-left: 20px;"></td>
+    <td class="tabla_4" >5 <input type="checkbox" name="vehicle" value="Bike" style="margin-left: 20px;"></td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >Estado(OK/RECHAZADO)</td>
+    <td>
+    <% if (resultado55 == "TRUE"){ %>
+    <select name="estado1">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">RECHAZO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado55 == "FALSE"){ %>
+    <select name="estado1">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">RECHAZO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado55 == "NULL" || resultado55 == "NAP"){ %>
+    <select name="estado1">
+    <option value ="1">SI</option>
+    <option value ="0">RECHAZO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+    <td>
+    <% if (resultado56 == "TRUE"){ %>
+    <select name="estado2">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">RECHAZO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado56 == "FALSE"){ %>
+    <select name="estado2">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">RECHAZO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado56 == "NULL" || resultado56 == "NAP"){ %>
+    <select name="estado2">
+    <option value ="1">SI</option>
+    <option value ="0">RECHAZO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+    <td>
+    <% if (resultado57 == "TRUE"){ %>
+    <select name="estado3">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">RECHAZO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado57 == "FALSE"){ %>
+    <select name="estado3">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">RECHAZO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado57 == "NULL" || resultado57 == "NAP"){ %>
+    <select name="estado3">
+    <option value ="1">SI</option>
+    <option value ="0">RECHAZO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+    <td>
+    <% if (resultado58 == "TRUE"){ %>
+    <select name="estado4">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">RECHAZO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado58 == "FALSE"){ %>
+    <select name="estado4">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">RECHAZO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado58 == "NULL" || resultado58 == "NAP"){ %>
+    <select name="estado4">
+    <option value ="1">SI</option>
+    <option value ="0">RECHAZO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+    <td>
+    <% if (resultado209 == "TRUE"){ %>
+    <select name="estado5">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">RECHAZO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado209 == "FALSE"){ %>
+    <select name="estado5">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">RECHAZO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado209 == "NULL" || resultado209 == "NAP"){ %>
+    <select name="estado5">
+    <option value ="1">SI</option>
+    <option value ="0">RECHAZO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >FECHA CONTROLES:<br></td>
+    <td><input type="date" name="fecha1"  class="form-control"  value="<%=resultado59 %>"  /></td>
+    <td><input type="date" name="fecha2"  class="form-control"  value="<%=resultado60 %>"  /></td>
+    <td><input type="date" name="fecha3"  class="form-control"  value="<%=resultado61 %>"  /></td>
+    <td><input type="date" name="fecha4"  class="form-control"  value="<%=resultado62 %>"  /></td>
+    <td><input type="date" name="fecha5"  class="form-control"  value="<%=resultado210 %>" /></td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >CONTROLADO POR:<br></td>
+    <td><input type="text" name="controlado1"  class="form-control"  value="<%=resultado63 %>"  /></td>
+    <td><input type="text" name="controlado2"  class="form-control"  value="<%=resultado64 %>"  /></td>
+    <td><input type="text" name="controlado3"  class="form-control"  value="<%=resultado65 %>"  /></td>
+    <td><input type="text" name="controlado4"  class="form-control"  value="<%=resultado66 %>"  /></td>
+    <td><input type="text" name="controlado5"  class="form-control"  value="<%=resultado211 %>" /></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  rowspan="2">AJUSTE REALIZADO:<br></td>
+    <td rowspan="2"><input type="text" name="ajuste1"  class="form-control"  value="<%=resultado67 %>"  /></td>
+    <td rowspan="2"><input type="text" name="ajuste2"  class="form-control"  value="<%=resultado68 %>"  /></td>
+    <td rowspan="2"><input type="text" name="ajuste3"  class="form-control"  value="<%=resultado69 %>"  /></td>
+    <td rowspan="2"><input type="text" name="ajuste4"  class="form-control"  value="<%=resultado70 %>"  /></td>
+    <td rowspan="2"><input type="text" name="ajuste5"  class="form-control"  value="<%=resultado212 %>" /></td>
+  </tr>
+  <tr>
+  </tr>
+  <tr>
+    <td class="tabla_4"  rowspan="4">V°B°<br>PLANOS<br></td>
+    <td></td>
+    <td class="tabla_4" >NOMBRE</td>
+    <td class="tabla_4" >FECHA</td>
+    <td class="tabla_4"  colspan="2">CARGO</td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >DESARROLLADO POR:<br></td>
+    <td><input type="text" name="desarllado_nombre"  class="form-control"  value="<%=resultado71 %>"  /></td>
+    <td><input type="date" name="desarrollado_fecha"  class="form-control"  value="<%=resultado72 %>"  /></td>
+    <td colspan="2"><input type="text" name="desarrollado_cargo"  class="form-control"  value="<%=resultado73 %>"  /></td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >VERIFICADO POR:<br></td>
+    <td><input type="text" name="verificado_nombre"  class="form-control"  value="<%=resultado74 %>"  /></td>
+    <td><input type="date" name="verificado_fecha"  class="form-control"  value="<%=resultado75 %>"  /></td>
+    <td colspan="2"><input type="text" name="verificado_cargo"  class="form-control"  value="<%=resultado76 %>"  /></td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >VALIDADO POR:<br></td>
+    <td><input type="text" name="validado_nombre"  class="form-control"  value="<%=resultado77 %>"  /></td>
+    <td><input type="date" name="validado_fecha"  class="form-control"  value="<%=resultado78 %>"  /></td>
+    <td colspan="2"><input type="text" name="validado_cargo"  class="form-control"  value="<%=resultado79 %>"  /></td>
+  </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+					                      <input type="submit" class="btn btn-success" value="Guardar"></input>&nbsp;
+                    </fieldset>
+                </form> 
+                     <!-- FINAL  Diseño de Proyecto  (Diseño de Planos)  -->
+
+                   <% } %>
+
+                    <% if(modif ==32) { %>
+
+                    <!-- INICIO   Diseño de Proyecto  (Diseño de Compuestos) -->
+                    <form action="/editar_registros.html/alter/32" method="post" class="panel-body">
+                    <fieldset>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            3.2) Diseño de Proyecto  (Diseño de Compuestos)
+
+                        </div>
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered table-striped">
+                                
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                          <tr>
+    <th class="tabla_4" colspan="2">Fecha Inicio<br></th>
+    <th><input type="date" name="fechai"  class="form-control"  value="<%=resultado81 %>"  /></th>
+    <th class="tabla_4" colspan="2">Fecha termino<br></th>
+    <th><input type="date" name="fechat"  class="form-control"  value="<%=resultado82 %>"  /></th>
+  </tr>
+    <tr>
+    <td  class="tabla_4"  colspan="2">CODIFICACION ASIGNADA COMPUESTO<br></td>
+    <td colspan="4"><input type="text" name="codificacion"  class="form-control"  value="<%=resultado108 %>"  /></td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >Control N°<br></td>
+    <td class="tabla_4" >1</td>
+    <td class="tabla_4" >2</td>
+    <td class="tabla_4" >3</td>
+    <td class="tabla_4" >4</td>
+    <td class="tabla_4" >5</td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >Estado(OK/RECHAZADO)</td>
+    <td>
+    <% if (resultado83 == "TRUE"){ %>
+    <select name="e1">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado83 == "FALSE"){ %>
+    <select name="e1">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado83 == "NULL" || resultado83 == "NAP"){ %>
+    <select name="e1">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+
+    <td>
+    <% if (resultado84 == "TRUE"){ %>
+    <select name="e2">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado84 == "FALSE"){ %>
+    <select name="e2">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado84 == "NULL" || resultado84 == "NAP"){ %>
+    <select name="e2">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+    
+    <td>
+    <% if (resultado85 == "TRUE"){ %>
+    <select name="e3">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado85 == "FALSE"){ %>
+    <select name="e3">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado85 == "NULL" || resultado85 == "NAP"){ %>
+    <select name="e3">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+       
+    <td>
+    <% if (resultado86 == "TRUE"){ %>
+    <select name="e4">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado86 == "FALSE"){ %>
+    <select name="e4">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado86 == "NULL" || resultado86 == "NAP"){ %>
+    <select name="e4">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+      
+    <td>
+    <% if (resultado213 == "TRUE"){ %>
+    <select name="e5">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado213 == "FALSE"){ %>
+    <select name="e5">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado213 == "NULL" || resultado213 == "NAP"){ %>
+    <select name="e5">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+
+  </tr>
+  <tr>
+    <td class="tabla_4" >FECHA CONTROLES:<br></td>
+    <td><input type="date" name="f1"  class="form-control"  value="<%=resultado87 %>"  /></td>
+    <td><input type="date" name="f2"  class="form-control"  value="<%=resultado88 %>"  /></td>
+    <td><input type="date" name="f3"  class="form-control"  value="<%=resultado89 %>"  /></td>
+    <td><input type="date" name="f4"  class="form-control"  value="<%=resultado90 %>"  /></td>
+    <td><input type="date" name="f5"  class="form-control"  value="<%=resultado214 %>" /></td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >CONTROLADO POR:<br></td>
+    <td><input type="text" name="c1"  class="form-control"  value="<%=resultado91 %>"  /></td>
+    <td><input type="text" name="c2"  class="form-control"  value="<%=resultado92 %>"  /></td>
+    <td><input type="text" name="c3"  class="form-control"  value="<%=resultado93 %>"  /></td>
+    <td><input type="text" name="c4"  class="form-control"  value="<%=resultado94 %>"  /></td>
+    <td><input type="text" name="c5"  class="form-control"  value="<%=resultado215 %>" /></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  rowspan="2">AJUSTE REALIZADO:<br></td>
+    <td rowspan="2"><input type="text" name="a1"  class="form-control"  value="<%=resultado95 %>"  /></td>
+    <td rowspan="2"><input type="text" name="a2"  class="form-control"  value="<%=resultado96 %>"  /></td>
+    <td rowspan="2"><input type="text" name="a3"  class="form-control"  value="<%=resultado97 %>"  /></td>
+    <td rowspan="2"><input type="text" name="a4"  class="form-control"  value="<%=resultado98 %>"  /></td>
+    <td rowspan="2"><input type="text" name="a5"  class="form-control"  value="<%=resultado216 %>" /></td>
+  </tr>
+  <tr>
+  </tr>
+  <tr>
+    <td class="tabla_4"  rowspan="4">V°B°<br>PLANOS<br></td>
+    <td class="tabla_4" ></td>
+    <td class="tabla_4" >NOMBRE</td>
+    <td class="tabla_4" >FECHA</td>
+    <td class="tabla_4"  colspan="2">CARGO</td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >DESARROLLADO POR:<br></td>
+    <td><input type="text" name="d_nombre"  class="form-control"  value="<%=resultado99 %>"  /></td>
+    <td><input type="date" name="d_fecha"  class="form-control"  value="<%=resultado100 %>"  /></td>
+    <td colspan="2"><input type="text" name="d_cargo"  class="form-control"  value="<%=resultado101 %>"  /></td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >VERIFICADO POR:<br></td>
+    <td><input type="text" name="v_nombre"  class="form-control"  value="<%=resultado102 %>"  /></td>
+    <td><input type="date" name="v_fecha"  class="form-control"  value="<%=resultado103 %>"  /></td>
+    <td colspan="2"><input type="text" name="v_cargo"  class="form-control"  value="<%=resultado104 %>"  /></td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >VALIDADO POR:<br></td>
+    <td><input type="text" name="val_nombre"  class="form-control"  value="<%=resultado105 %>"  /></td>
+    <td><input type="date" name="val_fecha"  class="form-control"  value="<%=resultado106 %>"  /></td>
+    <td colspan="2"><input type="text" name="val_cargo"  class="form-control"  value="<%=resultado107 %>"  /></td>
+  </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+					                      <input type="submit" class="btn btn-success" value="Guardar"></input>&nbsp;
+                    </fieldset>
+                </form> 
+                     <!--  FINAL  Diseño de Proyecto  (Diseño de Compuestos)  -->
+
+                    <% } %>
+        
+                    <% if(modif == 4) { %>
+
+                        <!-- INICIO   Cotizacion Proyecto  (Area Comercial)  -->
+
+                    <form action="/editar_registros.html/alter/4" method="post" class="panel-body">
+                    <fieldset>
+
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            4) Cotizacion Proyecto  (Area Comercial) 
+
+                        </div>
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered table-striped">
+                                
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                          <tr>
+    <th></th>
+    <th class="tabla_4" >NOMBRE</th>
+    <th class="tabla_4" >FECHA</th>
+    <th class="tabla_4" >CARGO</th>
+  </tr>
+  <tr>
+    <td class="tabla_4" >ENTREGA DE ANTECEDENTES:<br></td>
+    <td><input type="text" name="e_nombre"  class="form-control"  value="<%=resultado109 %>"  /></td>
+    <td><input type="date" name="e_fecha"  class="form-control"  value="<%=resultado110 %>"  /></td>
+    <td><input type="text" name="e_cargo"  class="form-control"  value="<%=resultado111 %>"  /></td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >REALIZACION DE COTIZACION:<br></td>
+    <td><input type="text" name="r_nombre"  class="form-control"  value="<%=resultado112 %>"  /></td>
+    <td><input type="date" name="r_fecha"  class="form-control"  value="<%=resultado113 %>"  /></td>
+    <td><input type="text" name="r_cargo"  class="form-control"  value="<%=resultado114 %>"  /></td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >VALIDACION DE COTIZACION:<br></td>
+    <td><input type="text" name="v_nombre"  class="form-control"  value="<%=resultado115 %>"  /></td>
+    <td><input type="date" name="v_fecha"  class="form-control"  value="<%=resultado116 %>"  /></td>
+    <td><input type="text" name="v_cargo"  class="form-control"  value="<%=resultado117 %>"  /></td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >APROBACION DE COTIZACION /O.C: <br></td>
+    <td><input type="text" name="a_nombre"  class="form-control"  value="<%=resultado118 %>"  /></td>
+    <td><input type="date" name="a_fecha"  class="form-control"  value="<%=resultado119 %>"  /></td>
+    <td><input type="text" name="a_cargo"  class="form-control"  value="<%=resultado120 %>"  /></td>
+  </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+					                      <input type="submit" class="btn btn-success" value="Guardar"></input>&nbsp;
+                    </fieldset>
+                </form> 
+                     <!--  FINAL  Cotizacion Proyecto  (Area Comercial)  -->
+
+
+                    <% } %>
+
+                    <% if(modif == 5) { %>
+
+
+                    <!-- INICIO   Desarrollo del Proyecto (Area Produccion)  -->
+
+                    <form action="/editar_registros.html/alter/5" method="post" class="panel-body">
+                    <fieldset>
+
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            5) Desarrollo del Proyecto (Area Produccion) 
+
+                        </div>
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered table-striped">
+                                
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                          <tr>
+    <th colspan="2"></th>
+    <th class="tabla_4" >FECHA<br>INICIO<br></th>
+    <th class="tabla_4" >FECHA<br>TERMINO<br></th>
+    <th class="tabla_4" >RESPONSABLE DEL <br>PROCESO<br></th>
+    <th class="tabla_4" >VALIDADO<br>POR:<br></th>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">PREPARACION COMPUESTO PU:<br></td>
+    <td><input type="date" name="pu_fechai"  class="form-control"  value="<%=resultado121 %>"  /></td>
+    <td><input type="date" name="pu_fechat"  class="form-control"  value="<%=resultado122 %>"  /></td>
+    <td><input type="text" name="pu_responsable"  class="form-control"  value="<%=resultado123 %>"  /></td>
+    <td><input type="text" name="pu_validado"  class="form-control"  value="<%=resultado124 %>"  /></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">PREPARACION COMPUESTO GOMA:<br></td>
+    <td><input type="date" name="pre_fechai"  class="form-control"  value="<%=resultado125 %>"  /></td>
+    <td><input type="date" name="pre_fechat"  class="form-control"  value="<%=resultado126 %>"  /></td>
+    <td><input type="text" name="pre_responsable"  class="form-control"  value="<%=resultado127 %>"  /></td>
+    <td><input type="text" name="pre_validado"  class="form-control"  value="<%=resultado128 %>"  /></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">FABRIACION INSUMOS:<br></td>
+    <td><input type="date" name="fab_fechai"  class="form-control"  value="<%=resultado129 %>"  /></td>
+    <td><input type="date" name="fab_fechat"  class="form-control"  value="<%=resultado130 %>"  /></td>
+    <td><input type="text" name="fab_responsable"  class="form-control"  value="<%=resultado131 %>"  /></td>
+    <td><input type="text" name="fab_validado"  class="form-control"  value="<%=resultado132 %>"  /></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">GRANALLADO INSUMOS:<br></td>
+    <td><input type="date" name="gra_fechai"  class="form-control"  value="<%=resultado133 %>"  /></td>
+    <td><input type="date" name="gra_fechat"  class="form-control"  value="<%=resultado134 %>"  /></td>
+    <td><input type="text" name="gra_responsable"  class="form-control"  value="<%=resultado135 %>"  /></td>
+    <td><input type="text" name="gra_validado"  class="form-control"  value="<%=resultado136 %>"  /></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">PINTADO Y ADHESIVADO INSUMOS:<br></td>
+    <td><input type="date" name="pin_fechai"  class="form-control"  value="<%=resultado137 %>"  /></td>
+    <td><input type="date" name="pin_fechat"  class="form-control"  value="<%=resultado138 %>"  /></td>
+    <td><input type="text" name="pin_responsale"  class="form-control"  value="<%=resultado139 %>"  /></td>
+    <td><input type="text" name="pin_validado"  class="form-control"  value="<%=resultado140 %>"  /></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">PRODUCCION SECCION PU:<br></td>
+    <td><input type="date" name="pro_pu_fechai"  class="form-control"  value="<%=resultado141 %>"  /></td>
+    <td><input type="date" name="pro_pu_fechat"  class="form-control"  value="<%=resultado142 %>"  /></td>
+    <td><input type="text" name="pro_pu_responsable"  class="form-control"  value="<%=resultado143 %>"  /></td>
+    <td><input type="text" name="pro_pu_validado"  class="form-control"  value="<%=resultado144 %>"  /></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">PRODUCCION SECCION GOMAS:<br></td>
+    <td><input type="date" name="pro_gom_fechai"  class="form-control"  value="<%=resultado146 %>"  /></td>
+    <td><input type="date" name="pro_gom_fechat"  class="form-control"  value="<%=resultado147 %>"  /></td>
+    <td><input type="text" name="pro_gom_responsable"  class="form-control"  value="<%=resultado148 %>"  /></td>
+    <td><input type="text" name="pro_gom_validado"  class="form-control"  value="<%=resultado149 %>"  /></td>
+  </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+					                      <input type="submit" class="btn btn-success" value="Guardar"></input>&nbsp;
+                    </fieldset>
+                </form> 
+                     <!--  FINAL  Desarrollo del Proyecto (Area Produccion)  -->
+
+                    <% } %>
+
+                    <% if(modif == 6) { %>
+
+                    <!-- INICIO Control Calidad del Proyecto (Area Control de Calidad)  -->
+
+                    <form action="/editar_registros.html/alter/6" method="post" class="panel-body">
+                    <fieldset>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            6) Control Calidad del Proyecto (Area Control de Calidad)
+
+                        </div>
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered table-striped">
+                                
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                          
+<tr>
+    <th colspan="2" class="tabla_4"></th>
+    <th class="tabla_4" >FECHA<br>REALIZACION<br></th>
+    <th class="tabla_4" >RESPONSABLE DEL <br>PROCESO<br></th>
+    <th class="tabla_4" >VALIDADO<br>POR:<br></th>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">CURVAS REOMETRICA:<br></td>
+    <td><input type="date" name="cu_fecha"  class="form-control"  value="<%=resultado150 %>"  /></td>
+    <td><input type="text" name="cu_res"  class="form-control"  value="<%=resultado151 %>"  /></td>
+    <td><input type="text" name="cu_val"  class="form-control"  value="<%=resultado152 %>"  /></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">ENSAYOS FISICOS EN LABORATORIO:<br></td>
+    <td><input type="date" name="lab_fecha"  class="form-control"  value="<%=resultado153 %>"  /></td>
+    <td><input type="text" name="lab_res"  class="form-control"  value="<%=resultado154 %>"  /></td>
+    <td><input type="text" name="lab_val"  class="form-control"  value="<%=resultado155 %>"  /></td>
+  </tr
+  <tr>
+    <td class="tabla_4"  colspan="2">CONTROL DIMENSIONAL:<br></td>
+    <td><input type="date" name="co_fecha"  class="form-control"  value="<%=resultado156 %>"  /></td>
+    <td><input type="text" name="co_res"  class="form-control"  value="<%=resultado157 %>"  /></td>
+    <td><input type="text" name="co_val"  class="form-control"  value="<%=resultado158 %>"  /></td>
+  </tr>
+  <tr>
+    <td  class="tabla_4" colspan="2">ENSAYOS FISICOS EXTERNALIZADOS:<br></td>
+    <td><input type="date" name="ext_fecha"  class="form-control"  value="<%=resultado159 %>"  /></td>
+    <td><input type="text" name="ext_res"  class="form-control"  value="<%=resultado160 %>"  /></td>
+    <td><input type="text" name="ext_val"  class="form-control"  value="<%=resultado161 %>"  /></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">LIBERACION REALIZADA POR CLIENTE:<br></td>
+    <td><input type="date" name="cli_fecha"  class="form-control"  value="<%=resultado162 %>"  /></td>
+    <td><input type="text" name="cli_res"  class="form-control"  value="<%=resultado163 %>"  /></td>
+    <td><input type="text" name="cli_val"  class="form-control"  value="<%=resultado164 %>"  /></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">LIBERACION PRODUCTO TERMINADO:<br></td>
+    <td><input type="date" name="ter_fecha"  class="form-control"  value="<%=resultado165 %>"  /></td>
+    <td><input type="text" name="ter_res"  class="form-control"  value="<%=resultado166 %>"  /></td>
+    <td><input type="text" name="ter_val"  class="form-control"  value="<%=resultado167 %>"  /></td>
+  </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+					                      <input type="submit" class="btn btn-success" value="Guardar"></input>&nbsp;
+                    </fieldset>
+                </form> 
+                     <!--  FINAL  Control Calidad del Proyecto (Area Control de Calidad)  -->
+
+
+                    <% } %>
+                    <% if(modif == 7) { %>
+
+                    <!-- INICIO Despacho del Proyecto (Area Logistica) -->
+
+                    <form action="/editar_registros.html/alter/7" method="post" class="panel-body">
+                    <fieldset>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            7) Despacho del Proyecto (Area Logistica)
+
+                        </div>
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered table-striped">
+                                
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                          
+<tr>
+    <th colspan="2" class="tabla_4"></th>
+    <th class="tabla_4" >FECHA<br>REALIZACION<br></th>
+    <th class="tabla_4" >RESPONSABLE DEL <br>PROCESO<br></th>
+    <th class="tabla_4" >VALIDADO<br>POR:<br></th>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">TRAZADO DE RUTAS:<br></td>
+    <td><input type="date" name="ruta_fecha"  class="form-control"  value="<%=resultado168 %>"  /></td>
+    <td><input type="text" name="ruta_resp"  class="form-control"  value="<%=resultado169 %>"  /></td>
+    <td><input type="text" name="ruta_val"  class="form-control"  value="<%=resultado170 %>"  /></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">TRANSPORTE:<br></td>
+    <td><input type="date" name="tra_fecha"  class="form-control"  value="<%=resultado171 %>"  /></td>
+    <td><input type="text" name="tra_resp"  class="form-control"  value="<%=resultado172 %>"  /></td>
+    <td><input type="text" name="tra_val"  class="form-control"  value="<%=resultado173 %>"  /></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">RECEPCION GUIAS O FACTURAS:<br></td>
+    <td><input type="date" name="rec_fecha"  class="form-control"  value="<%=resultado174 %>"  /></td>
+    <td><input type="text" name="rec_resp"  class="form-control"  value="<%=resultado175 %>"  /></td>
+    <td><input type="text" name="rec_val"  class="form-control"  value="<%=resultado176 %>"  /></td>
+  </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+					                      <input type="submit" class="btn btn-success" value="Guardar"></input>&nbsp;
+                    </fieldset>
+                </form> 
+                     <!--  FINAL  Despacho del Proyecto (Area Logistica)  -->
+
+                    <% } %>
+
+                    <% if(modif == 8) { %>
+                     <!-- INICIO Validacion Salidas Proyecto (Area Comercial) -->
+
+                    <form action="/editar_registros.html/alter/8" method="post" class="panel-body">
+                    <fieldset>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            8) Validacion Salidas Proyecto (Area Comercial)
+
+                        </div>
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered table-striped">
+                                
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                          
+<tr>
+    <th class="tabla_4"  rowspan="2">CUMPLE<br>SATISFACTORIAMENTE<br></th>
+    <th>
+    <% if (resultado177 == "TRUE"){ %>
+    <select name="c_con">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado177 == "FALSE"){ %>
+    <select name="c_con">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado177 == "NULL" || resultado177 == "NAP"){ %>
+    <select name="c_con">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </th>
+
+    <th>
+    <% if (resultado178 == "TRUE"){ %>
+    <select name="c_ver">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado178 == "FALSE"){ %>
+    <select name="c_ver">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado178 == "NULL" || resultado178 == "NAP"){ %>
+    <select name="c_ver">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </th>
+
+    
+    <th>
+    <% if (resultado179 == "TRUE"){ %>
+    <select name="c_val">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado179 == "FALSE"){ %>
+    <select name="c_val">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado179 == "NULL" || resultado179 == "NAP"){ %>
+    <select name="c_val">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </th>
+    <th colspan="2"><input type="text" name="c_res"  class="form-control"  value="<%=resultado180 %>"  /></th>
+  </tr>
+  <tr>
+    <td class="tabla_4" >CONTROLES</td>
+    <td class="tabla_4" >VERIFICACIONES</td>
+    <td class="tabla_4" >VALIDACIONES</td>
+    <td class="tabla_4"  colspan="2">RESPONSABLES</td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  rowspan="2">CUMPLE<br>REQUISITOS<br></td>
+    <td>
+    <% if (resultado181 == "TRUE"){ %>
+    <select name="c_func">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado181 == "FALSE"){ %>
+    <select name="c_func">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado181 == "NULL" || resultado181 == "NAP"){ %>
+    <select name="c_func">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+
+    <td>
+    <% if (resultado182 == "TRUE"){ %>
+    <select name="c_dem">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado182 == "FALSE"){ %>
+    <select name="c_dem">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado182 == "NULL" || resultado182 == "NAP"){ %>
+    <select name="c_dem">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+
+    <td>
+    <% if (resultado183 == "TRUE"){ %>
+    <select name="c_nor">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado183 == "FALSE"){ %>
+    <select name="c_nor">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado183 == "NULL" || resultado183 == "NAP"){ %>
+    <select name="c_nor">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+
+    <td>
+    <% if (resultado184 == "TRUE"){ %>
+    <select name="c_leg">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado184 == "FALSE"){ %>
+    <select name="c_leg">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado184 == "NULL" || resultado184 == "NAP"){ %>
+    <select name="c_leg">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+    
+    <td>
+    <% if (resultado185 == "TRUE"){ %>
+    <select name="c_reg">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado185 == "FALSE"){ %>
+    <select name="c_reg">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado185 == "NULL" || resultado185 == "NAP"){ %>
+    <select name="c_reg">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+    
+  </tr>
+  <tr>
+    <td class="tabla_4" >FUNCIONALES</td>
+    <td class="tabla_4" >DESEMPEÑO</td>
+    <td class="tabla_4" >NORMATIVOS</td>
+    <td class="tabla_4" >LEGALES</td>
+    <td class="tabla_4" >REGLAMENTARIOS</td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  rowspan="2">NO CUMPLE<br>REQUISITOS<br></td>
+    <td class="tabla_4"  colspan="2">ACCION CORRECTIVA:<br></td>
+    <td colspan="3"><input type="text" name="ac_correctiva"  class="form-control"  value="<%=resultado186 %>"  /></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">FOLIO ACCION CORRECTIVA<br></td>
+    <td colspan="3"><input type="text" name="fo_accion"  class="form-control"  value="<%=resultado187 %>"  /></td>
+  </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+					                      <input type="submit" class="btn btn-success" value="Guardar"></input>&nbsp;
+                    </fieldset>
+                </form> 
+                     <!--  FINAL  Validacion Salidas Proyecto (Area Comercial)  -->
+                     <% } %>
+
+
+                    <% if(modif == 9) { %>
+                     <!-- INICIO Validacion  Validacion Final Cliente (Area Comercial) -->
+                    <form action="/editar_registros.html/alter/9" method="post" class="panel-body">
+                    <fieldset>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            9) Validacion  Validacion Final Cliente (Area Comercial)
+
+                        </div>
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered table-striped">
+                                
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                          
+<tr>
+    <th class="tabla_4"  colspan="2" rowspan="4">V° B°<br>CLIENTE:<br></th>
+    <th class="tabla_4"  colspan="3">NOMBRE QUIEN VALIDA:<br></th>
+    <th class="tabla_4"  colspan="3">AREA O SECTOR PUESTA EN USO:<br></th>
+  </tr>
+  <tr>
+    <td colspan="3"><input type="text" name="nombre"  class="form-control"  value="<%=resultado188 %>"  /></td>
+    <td colspan="3"><input type="text" name="area"  class="form-control"  value="<%=resultado189 %>"  /></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2" rowspan="2">MEDIO VALIDACION:<br></td>
+    <td class="tabla_4" >MAIL:</td>
+    
+    <td>
+    <% if (resultado190 == "TRUE"){ %>
+    <select name="mail">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado190 == "FALSE"){ %>
+    <select name="mail">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado190 == "NULL" || resultado190 == "NAP"){ %>
+    <select name="mail">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+
+    <td class="tabla_4" >FECHA ENVIO:<br></td>
+    <td><input type="date" name="fechae"  class="form-control"  value="<%=resultado192 %>"  /></td>
+  </tr>
+  <tr>
+    <td class="tabla_4">N° FACTURA:</td>
+    
+    <td>
+    <% if (resultado191 == "TRUE"){ %>
+    <select name="factura">
+    <option value ="1" selected="selected">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado191 == "FALSE"){ %>
+    <select name="factura">
+    <option value ="1" >SI</option>
+    <option value ="0" selected="selected">NO</option>
+    <option value ="NULL">NAP</option>
+    </select>
+    <% } %>
+    <% if (resultado191 == "NULL" || resultado191 == "NAP"){ %>
+    <select name="factura">
+    <option value ="1">SI</option>
+    <option value ="0">NO</option>
+    <option value ="NULL" selected="selected">NAP</option>
+    <% } %>
+    </td>
+
+    <td class="tabla_4">FECHA PAGO:<br></td>
+    <td><input type="date" name="fechap"  class="form-control"  value="<%=resultado193 %>"  /></td>
+  </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                     <!--  FINAL  Validacion Final Cliente (Area Comercial)  -->
+
+					                      <input type="submit" class="btn btn-success" value="Guardar"></input>&nbsp;
+                    </fieldset>
+                </form> 
+                    <% } %>
+
+                    <% if(modif == 10) { %>
+
+                    <!-- INICIO  Control de Cambios Internos o Externos (Area Ingenieria y Proyectos) -->
+
+                    <form action="/editar_registros.html/alter/10" method="post" class="panel-body">
+                    <fieldset>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            10) Control de Cambios Internos o Externos (Area Ingenieria y Proyectos)
+
+                        </div>
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered table-striped">
+                                
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                          
+<tr>
+    <th class="tabla_4"  rowspan="2">N° REVISION<br></th>
+    <th class="tabla_4"  colspan="2" rowspan="2">CAMBIO SOLICITADO :<br></th>
+    <th colspan="4" rowspan="2"><input type="text" name="cambio"  class="form-control"  value="<%=resultado196 %>"  /></th>
+  </tr>
+  <tr>
+  </tr>
+  <tr>
+    <td rowspan="4"><%=resultado217%></td>
+    <td class="tabla_4"  colspan="2">NUEVO CODIGO:<br></td>
+    <td  class="tabla_4" colspan="2">FECHA SOLICITUD CAMBIO: <br></td>
+    <td  class="tabla_4" colspan="2">FECHA CIERRE CAMBIO:<br></td>
+  </tr>
+  <tr>
+    <td colspan="2"><input type="text" name="codigo"  class="form-control"  value="<%=resultado200 %>"  /></td>
+    <td colspan="2"><input type="date" name="fecha_solicitud"  class="form-control"  value="<%=resultado194 %>"  /></td>
+    <td colspan="2"><input type="date" name="fecha_cierre"  class="form-control"  value="<%=resultado195 %>"  /></td>
+
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">DESARROLLADO POR:<br></td>
+    <td class="tabla_4"  colspan="2">VERIFICADO POR:<br></td>
+    <td class="tabla_4"  colspan="2">VALIDADO POR:<br></td>
+  </tr>
+  <tr>
+    <td colspan="2"><input type="text" name="des_por"  class="form-control"  value="<%=resultado199 %>"  /></td>
+    <td colspan="2"><input type="text" name="ver_por"  class="form-control"  value="<%=resultado197 %>"  /></td>
+    <td colspan="2"><input type="text" name="val_por"  class="form-control"  value="<%=resultado198 %>"  /></td>
+
+  </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+					                      <input type="submit" class="btn btn-success" value="Guardar"></input>&nbsp;
+                    </fieldset>
+                </form>                      
+
+<!--  FINAL  Control de Cambios Internos o Externos (Area Ingenieria y Proyectos)  -->
+
+                    <% } %>
+        </div>
+    </div>
+    <!-- CONTENT-WRAPPER SECTION END-->
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    &copy; 2016 BUSANC | Por : Diego Eduardo Escobar Boehmwald   
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER SECTION END-->
+    <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY SCRIPTS -->
+    <script src="./../assets/js/jquery-1.11.1.js"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="./../assets/js/bootstrap.js"></script>
+</body>
+</html>
+
+<!-- cdn for modernizr, if you haven't included it already -->
+<script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+<!-- polyfiller file to detect and load polyfills -->
+<script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
+<script>
+      webshims.setOptions('waitReady', false);
+      webshims.setOptions('forms-ext', {types: 'date'});
+      webshims.polyfill('forms forms-ext');
+</script>

@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Registros - Busanc</title>
+    <!-- BOOTSTRAP CORE STYLE  -->
+    <link href="./../assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONT AWESOME ICONS  -->
+    <link href="./../assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE  -->
+    <link href="./../assets/css/style.css" rel="stylesheet" />
+    <link href="./../assets/css/busanc.css" rel="stylesheet" />
+    <title>Home - Busanc</title>
+
+    <link href="./../assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <link href="./../assets/css/font-awesome.css" rel="stylesheet" />
+
+    <link href="./../assets/css/style.css" rel="stylesheet" />
+    <link href="./../assets/css/busanc.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <script>
+
+function reply_click(clicked_id)
+{
+    var url = clicked_id
+    url = "/editar_registros.html/editar/" + url;
+    window.location.replace(url);
+}
+    </script>
+
+</head>
+<body>
+    <% include header.ejs %>
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="page-head-line">
+                        Solicitud de cliente
+                        
+                        <a href="/registros.html">
+                            <button class="btn btn-primary " style="float: right;margin-right: 5px;margin-top: -2px;">Volver</button>
+                        </a>
+                        <% if (vpermiso1 || vpermiso0){ %>
+                            <a href="/editar_solicitud/modificar" class="btn btn-success " style="float: right;margin-right: 5px;margin-top: -2px;">Editar</a>
+                        <% } %>
+                        <a href="/redirect/solicitud/<%=resultado1%>" download class="btn btn-info " style="float: right;margin-right: 5px;margin-top: -2px;">PDF - Solicitud de Cliente</a>
+                    </h1>
+                </div>
+
+            </div>
+
+
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="Compose-Message">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                SOLICITUD DE CLIENTE
+                            </div>
+                            <div class="panel-body">
+                            <div class="table-responsive table-bordered table-striped">
+                            <table class="table table-bordered">
+  <tr>
+    <th  class="tabla_4">Fecha de entrega de Cotización :</td>
+    <td><%=resultado29%></td>
+  </tr>
+  <tr>
+    
+    <th  class="tabla_4">Requisitos funcionales :</td>
+    <td><%=resultado7%></td>
+  </tr>
+  <tr>
+    <th  class="tabla_4">Nombre del Proyecto :</td>
+    <td><%=resultado8%></td>
+  </tr>
+  <tr>
+    <th  class="tabla_4">Requisitos de desempeño :</td>
+    <td><%=resultado31%></td>
+  </tr>
+  <tr>
+    <th  class="tabla_4">Nombre del Cliente :</td>
+    <td><%=resultado32%></td>
+  </tr>
+  <tr>
+    
+    <th  class="tabla_4">Requisito normativo :</td>
+    <td><%=resultado9 %></td>
+  </tr>
+  <tr>
+    <th  class="tabla_4">Area :</td>
+    <td><%=resultado33 %></td>
+  </tr>
+  <tr>
+    
+    <th  class="tabla_4">Requisitos legales :</td>
+    <td><%=resultado10 %></td>
+  </tr>
+  <tr>
+    <th  class="tabla_4">Fecha Visita :</td>
+    <td><%=resultado34 %></td>
+  </tr>
+  <tr>
+    
+    <th  class="tabla_4">Requisitos reglamentarios:</td>
+    <td><%=resultado11 %></td>
+  </tr>
+  <tr>
+    <th  class="tabla_4">Descripción y Especificaciones tecnicas del proyecto</td>
+    <td><%=resultado35 %></td>
+  </tr>
+  <tr>
+    
+    <th  class="tabla_4">Potenciales fallas</td>
+    <td><%=resultado28 %></td>
+  </tr>
+</table>
+
+
+</div>
+                        </div>
+
+                            <hr />
+
+                            
+                            <br />
+                            <div class="panel-footer text-muted">
+                                <strong>Nota : </strong>Se recuerda que todos los mensajes se registran, favor de no llenar de spam.
+                                <br />
+                                <strong>Nota : </strong>Se recuerda que crear un nuevo proyecto notificara por correo a los responsables correspondientes.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    &copy; 2016 BUSANC | Por : Diego Eduardo Escobar Boehmwald
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <script src="./../assets/js/jquery-1.11.1.js"></script>
+    <script src="./../assets/js/bootstrap.js"></script>
+
+
+</body>
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+<script type="text/javascript">
+$(".js-example-basic-multiple").select2();
+</script>
+
+<!-- cdn for modernizr, if you haven't included it already -->
+<script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+<!-- polyfiller file to detect and load polyfills -->
+<script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
+<script>
+  webshims.setOptions('waitReady', false);
+  webshims.setOptions('forms-ext', {types: 'date'});
+  webshims.polyfill('forms forms-ext');
+</script>

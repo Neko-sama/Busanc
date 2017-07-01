@@ -1,0 +1,1198 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Registros - Busanc</title>
+    <!-- BOOTSTRAP CORE STYLE  -->
+    <link href="./../assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONT AWESOME ICONS  -->
+    <link href="./../assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE  -->
+    <link href="./../assets/css/style.css" rel="stylesheet" />
+    <link href="./../assets/css/busanc.css" rel="stylesheet" />
+<script>
+
+function reply_click(clicked_id)
+{
+    var url = clicked_id
+    url = "/editar_registros.html/editar/" + url;
+    window.location.replace(url);
+}
+</script>
+
+</head>
+<body>
+    <% include header.ejs %>
+    <div class="content-wrapper">
+        <div class="container">
+              <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-head-line">Registro de validación: diseño y desarrollo 
+                            <a href="/registros.html">
+                                <button class="btn btn-primary " style="float: right;margin-right: 5px;margin-top: -2px;">Volver</button>
+                            </a>
+                            <a href="/redirect/registro/<%=resultado1%>" download class="btn btn-info " style="float: right;margin-right: 5px;margin-top: -2px;">PDF - Registro de Validacion</a>
+                            <% if (vpermiso1 || vpermiso0){ %>
+                            <a href="https://www.dropbox.com/sh/p1k42gabulzzm0a/AACpOZ9siQ3Gn8xVuauDS1jga?dl=0" class="btn btn-info " style="float: right;margin-right: 5px;margin-top: -2px;">ARCHIVOS</a>
+                            <% } %>
+                        </h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+
+                    <!-- INICIO   INDICE -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                             Indice
+                            <% if (vpermiso0){ %>
+                            <button class="btn btn-success " style="float: right;margin-right: 5px;margin-top: -2px;" id="0" onClick="reply_click(this.id)">Editar</button>
+                            <% } %>
+                            <!-- Aqui va la ventana de editar!! -->
+                        </div>
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered table-striped">
+                                
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                          <tr>
+    <th class="tabla_4">PROYECTO</th>
+    <th colspan="5"><%=resultado201%></th>
+  </tr>
+  <tr>
+    <td class="tabla_4">CLIENTE</td>
+    <td colspan="2"><%=resultado202%></td>
+    <td class="tabla_4">CODIGO PROYECTO</td>
+    <td colspan="2" style="color: red; font-weight: bold;"><%=resultado204%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4" colspan="2">FECHA INICIO PROYECTO:</td>
+    <td><%=resultado203%></td>
+    <td class="tabla_4">N° SOLICITUD CLIENTE</td>
+    <td colspan="2" style="color: red; font-weight: bold;"><%=resultado1%></td>
+  </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                     <!--  FINAL  INDICE -->
+
+
+
+                    <!--   Entradas de proyecto  -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            1) Entradas de Proyecto  (Detección de necesidades)
+                            <% if (vpermiso1){ %>
+                            <button class="btn btn-success " style="float: right;margin-right: 5px;margin-top: -2px;" id="1" onClick="reply_click(this.id)">Editar</button>
+                            <%} %>
+                            <!-- Aqui va la ventana de editar!! -->
+                        </div>
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered table-striped">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td class="tabla_1">
+                                                <span style="font-weight:bold">
+                                                    Requisitos funcionales :
+                                                </span>
+                                            </td>
+<% if (resultado2 == "null"){ %>
+    <td>NAP</td>
+    <% } else {%>
+    <td><%=resultado2%></td>
+    <% }%>
+                                        </tr>
+                                        <tr>
+                                            <td class="tabla_1">
+                                                <span style="font-weight:bold">
+                                                    Requisitos de desempeño :
+                                                </span>
+                                            </td>
+                                            <td><%=resultado3%></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="tabla_1">
+                                                <span style="font-weight:bold">
+                                                    Requisitos normativo :
+                                                </span>
+                                            </td>
+                                            <td><%=resultado4 %></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="tabla_1">
+                                                <span style="font-weight:bold">
+                                                    Requisitos legales :
+                                                </span>
+                                            </td>
+                                            <td><%=resultado5%></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="tabla_1">
+                                                <span style="font-weight:bold">
+                                                    Requisitos reglamentarios :
+                                                </span>
+                                            </td>
+                                            <td><%=resultado6%></td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Muestra fisica:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <%=resultado7 %>
+                                            </td>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Enviado por:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <%=resultado8 %>
+                                            </td>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Fecha:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <%=resultado9 %>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Fotografias:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <%=resultado10 %>
+                                            </td>
+                                            <td class="tabla_2"> 
+                                                <span style="font-weight:bold">
+                                                    Tomadas por:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <%=resultado11 %>
+                                            </td>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Fecha:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <%=resultado12 %>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Planos Adjuntos:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <%=resultado13 %>
+                                            </td>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Enviado por:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <%=resultado14 %>
+                                            </td>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Fecha:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <%=resultado15 %>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Levantamientos y/o Medidas:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <%=resultado16 %>
+                                            </td>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Realizado por:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <%=resultado17 %>
+                                            </td>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Fecha:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <%=resultado18 %>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Mail Respaldo:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <%=resultado206 %>
+                                            </td>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Enviado por:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <%=resultado207 %>
+                                            </td>
+                                            <td class="tabla_2">
+                                                <span style="font-weight:bold">
+                                                    Fecha:
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <%=resultado208 %>
+                                            </td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td class="tabla_3">
+                                                <span style="font-weight:bold">
+                                                    Descripcion de especificaciones tecnicas requeridas :
+                                                </span>
+                                            </td>
+                                            <td><%=resultado19 %></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="tabla_3">
+                                                <span style="font-weight:bold">
+                                                    Potenciales fallas :
+                                                </span>
+                                            </td>
+                                            <td><%=resultado20 %></td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                     <!--  Entradas de proyecto  -->
+
+
+
+                    <!--    Planificacion de Proyecto  (Planificacion Diseño de Planos) -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            2.1) Planificacion de Proyecto  (Planificacion Diseño de Planos)
+                            <% if (vpermiso21){ %>
+                            <button class="btn btn-success " style="float: right;margin-right: 5px;margin-top: -2px;" id="21" onClick="reply_click(this.id)">Editar</button>
+                            <%} %>
+                        </div>
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered table-striped">
+                                
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                          <tr>
+    <th class="tabla_4"colspan="3">Fecha de Inicio:<br></th>
+    <% if (resultado21 == "null"){ %>
+    <td colspan="2">NAP</td>
+    <% } else {%>
+    <td colspan="2"><%=resultado21%></td>
+    <% }%>
+    <th class="tabla_4"colspan="3">Fecha de Termino:<br></th>
+    <% if (resultado22 == "null"){ %>
+    <td colspan="2">NAP</td>
+    <% } else {%>
+    <td colspan="2"><%=resultado22%></td>
+    <% }%>
+  </tr>
+  <tr>
+    <th class="tabla_4"colspan="2">Nivel de Complejidad:<br></th>
+    <th class="tabla_4">Ing. Conceptual:</th>
+    <td><%=resultado23%></td>
+    <th class="tabla_4">Ing. Basica</th>
+    <td><%=resultado24%></td>
+    <th class="tabla_4">Ing.Detalles</th>
+    <td><%=resultado25%></td>
+    <th class="tabla_4">3D<br></th>
+    <td> <%=resultado26%></td>
+  </tr>
+  <tr>
+    <th class="tabla_4"rowspan="2">Responsables:</th>
+    <% if (resultado27 == "null"){ %>
+    <td colspan="3">NAP</td>
+    <% } else {%>
+    <td colspan="3"><%=resultado27%></td>
+    <% }%>
+
+    <% if (resultado28 == "null"){ %>
+    <td colspan="3">NAP</td>
+    <% } else {%>
+    <td colspan="3"><%=resultado28%></td>
+    <% }%>
+
+    <% if (resultado29 == "null"){ %>
+    <td colspan="3">NAP</td>
+    <% } else {%>
+    <td colspan="3"><%=resultado29%></td>
+    <% }%>
+  </tr>
+  <tr>
+    <th class="tabla_4"colspan="3">Supervisor Ing</th>
+    <th class="tabla_4"colspan="3">Proyectista</th>
+    <th class="tabla_4"colspan="3">Dibujante</th>
+  </tr>
+  <tr>
+    <th class="tabla_4"colspan="3">Recursos Internos o Externos Requeridos:<br></th>
+
+    <% if (resultado30 == "null"){ %>
+    <td colspan="7">NAP</td>
+    <% } else {%>
+    <td colspan="7"><%=resultado30%></td>
+    <% }%>
+    
+  </tr>
+  <tr>
+    <th class="tabla_4"colspan="3">Informacion Documentada Adicional<br></th>
+    <% if (resultado31 == "null"){ %>
+    <td colspan="7">NAP</td>
+    <% } else {%>
+    <td colspan="7"><%=resultado31%></td>
+    <% }%>
+  </tr>
+  <tr>
+    <th class="tabla_4"colspan="2" rowspan="2">Req. Adicionales Para<br>Diseño de Planos:<br></th>
+    <th class="tabla_4">Bosquejo de Producto<br></th>
+    <td><%=resultado32%></td>
+    <th class="tabla_4">Ing. Especifica<br></th>
+    <td><%=resultado33%></td>
+    <th class="tabla_4"colspan="2" rowspan="2">ENSAYOS<br>ESPECIALES:<br></th>
+    <td colspan="2" rowspan="2"> <%=resultado34%></td>
+  </tr>
+  <tr>
+    <th class="tabla_4">Levntamientos de Terreno:<br></th>
+    <td><%=resultado35 %></td>
+    <th class="tabla_4">Descripcion</th>
+    <td> <%=resultado36%></td>
+  </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                     <!--  Planificacion de Proyecto  (Planificacion Diseño de Planos)  -->
+
+
+                     <!--    Planificacion de Proyecto  (Planificacion Diseño de Compuestos) -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            2.2) Planificacion de Proyecto  (Planificacion Diseño de Compuestos)
+                            <% if (vpermiso22){ %>
+                            <button class="btn btn-success " style="float: right;margin-right: 5px;margin-top: -2px;" id="22" onClick="reply_click(this.id)">Editar</button>
+                            <%} %>
+                        </div>
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered table-striped">
+                                
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                          <tr>
+    <th class="tabla_4"colspan="3">Fecha de Inicio:<br></th>
+    <% if (resultado37 == "null"){ %>
+    <td colspan="2">NAP</td>
+    <% } else {%>
+    <td colspan="2"><%=resultado37%></td>
+    <% }%>
+    <th class="tabla_4"colspan="3">Fecha de Termino:<br></th>
+    <% if (resultado38 == "null"){ %>
+    <td colspan="2">NAP</td>
+    <% } else {%>
+    <td colspan="2"><%=resultado38%></td>
+    <% }%>
+  </tr>
+  <tr>
+    <th class="tabla_4"colspan="2">Nivel de Complejidad:<br></th>
+    <th class="tabla_4">Desarrollo nuevo compuesto:</th>
+    <td><%=resultado39%></td>
+    <th class="tabla_4">Mejora compuesto en eso</th>
+    <td><%=resultado40%></td>
+    <th class="tabla_4">Utilizacion compuesto codificado</th>
+    <td><%=resultado41%></td>
+    <th class="tabla_4">No es factible<br></th>
+    <td><%=resultado42%></td>
+  </tr>
+  <tr>
+    <th class="tabla_4"rowspan="2">Responsables:</th>
+    <% if (resultado43 == "null"){ %>
+    <td colspan="3">NAP</td>
+    <% } else {%>
+    <td colspan="3"><%=resultado43%></td>
+    <% }%>
+
+    <% if (resultado44 == "null"){ %>
+    <td colspan="3">NAP</td>
+    <% } else {%>
+    <td colspan="3"><%=resultado44%></td>
+    <% }%>
+
+    
+    <% if (resultado45 == "null"){ %>
+    <td colspan="3">NAP</td>
+    <% } else {%>
+    <td colspan="3"><%=resultado45%></td>
+    <% }%>
+    
+  </tr>
+  <tr>
+    <th class="tabla_4"colspan="3">Jefe seccion PU</th>
+    <th class="tabla_4"colspan="3">Jefe seccion Gomas</th>
+    <th class="tabla_4"colspan="3">Gerente Produccion</th>
+  </tr>
+  <tr>
+    <th class="tabla_4"colspan="3">Recursos Internos o Externos Requeridos:<br></th>
+    <% if (resultado46 == "null"){ %>
+    <td colspan="7">NAP</td>
+    <% } else {%>
+    <td colspan="7"><%=resultado46%></td>
+    <% }%>
+  </tr>
+  <tr>
+    <th class="tabla_4"colspan="3">Informacion Documentada Adicional<br></th>
+    <% if (resultado47 == "null"){ %>
+    <td colspan="7">NAP</td>
+    <% } else {%>
+    <td colspan="7"><%=resultado47%></td>
+    <% }%>
+  </tr>
+  <tr>
+    <th class="tabla_4"colspan="2" rowspan="2">Req. Adicionales Para<br>Diseño de Compuestos:<br></th>
+    <th class="tabla_4">Levantamiento Terreno<br></th>
+    <td><%=resultado48%></td>
+    <th class="tabla_4">Especificacion Tecnica<br></th>
+    <td><%=resultado49%></td>
+    <th class="tabla_4"colspan="2" rowspan="2">ENSAYOS<br>ESPECIALES:<br></th>
+    <td colspan="2" rowspan="2"><%=resultado50%></td>
+  </tr>
+  <tr>
+    <th class="tabla_4">Fabricacion de Moldes:<br></th>
+    <td><%=resultado51%></td>
+    <th class="tabla_4">Analisis de Laboratorio</th>
+    <td><%=resultado52%></td>
+  </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                     <!--  Planificacion de Proyecto  (Planificacion Diseño de Compuestos)  -->
+
+
+
+
+                    <!--    Diseño de Proyecto  (Diseño de Planos) -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            3.1) Diseño de Proyecto  (Diseño de Planos)
+                            <% if (vpermiso31){ %>
+                            <button class="btn btn-success " style="float: right;margin-right: 5px;margin-top: -2px;" 
+                            id="31" onClick="reply_click(this.id)">Editar</button>
+                            <%} %>
+                        </div>
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered table-striped">
+                                
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                          <tr>
+    <th class="tabla_4" colspan="2">Fecha Inicio<br></th>
+    <th><%=resultado53%></th>
+    <th class="tabla_4" colspan="2">Fecha termino<br></th>
+    <th><%=resultado54%></th>
+  </tr>
+  <tr>
+    <td class="tabla_4" >Control N°<br></td>
+    <td class="tabla_4" >1</td>
+    <td class="tabla_4" >2</td>
+    <td class="tabla_4" >3</td>
+    <td class="tabla_4" >4</td>
+    <td class="tabla_4" >5</td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >Estado(OK/RECHAZADO)</td>
+    <td><%=resultado55%></td>
+    <td><%=resultado56%></td>
+    <td><%=resultado57%></td>
+    <td><%=resultado58%></td>
+    <td><%=resultado209%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >FECHA CONTROLES:<br></td>
+    <td><%=resultado59%></td>
+    <td><%=resultado60%></td>
+    <td><%=resultado61%></td>
+    <td><%=resultado62%></td>
+    <td><%=resultado210%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >CONTROLADO POR:<br></td>
+    <td><%=resultado63%></td>
+    <td><%=resultado64%></td>
+    <td><%=resultado65%></td>
+    <td><%=resultado66%></td>
+    <td><%=resultado211%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  rowspan="2">AJUSTE REALIZADO:<br></td>
+    <td rowspan="2"><%=resultado67%></td>
+    <td rowspan="2"><%=resultado68%></td>
+    <td rowspan="2"><%=resultado69%></td>
+    <td rowspan="2"><%=resultado70%></td>
+    <td rowspan="2"><%=resultado212%></td>
+  </tr>
+  <tr>
+  </tr>
+  <tr>
+    <td class="tabla_4"  rowspan="4">V°B°<br>PLANOS<br></td>
+    <td></td>
+    <td class="tabla_4" >NOMBRE</td>
+    <td class="tabla_4" >FECHA</td>
+    <td class="tabla_4"  colspan="2">CARGO</td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >DESARROLLADO POR:<br></td>
+    <td><%=resultado71%></td>
+    <td><%=resultado72%></td>
+    <td colspan="2"><%=resultado73%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >VERIFICADO POR:<br></td>
+    <td><%=resultado74%></td>
+    <td><%=resultado75%></td>
+    <td colspan="2"><%=resultado76%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >VALIDADO POR:<br></td>
+    <td><%=resultado77%></td>
+    <td><%=resultado78%></td>
+    <td colspan="2"><%=resultado79%></td>
+  </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                     <!-- FINAL  Diseño de Proyecto  (Diseño de Planos)  -->
+
+                    <!-- INICIO   Diseño de Proyecto  (Diseño de Compuestos) -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            3.2) Diseño de Proyecto  (Diseño de Compuestos)
+                            <% if (vpermiso32){ %>
+                            <button class="btn btn-success " style="float: right;margin-right: 5px;margin-top: -2px;" 
+                            id="32" onClick="reply_click(this.id)">Editar</button>
+                            <%} %>
+                        </div>
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered table-striped">
+                                
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                          <tr>
+    <th class="tabla_4" colspan="2">Fecha Inicio<br></th>
+    <th><%=resultado81%></th>
+    <th class="tabla_4" colspan="2">Fecha termino<br></th>
+    <th><%=resultado82%></th>
+  </tr>
+    <tr>
+    <td  class="tabla_4"  colspan="2">CODIFICACION ASIGNADA COMPUESTO<br></td>
+    <td colspan="4"><%=resultado108%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >Control N°<br></td>
+    <td class="tabla_4" >1</td>
+    <td class="tabla_4" >2</td>
+    <td class="tabla_4" >3</td>
+    <td class="tabla_4" >4</td>
+    <td class="tabla_4" >5</td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >Estado(OK/RECHAZADO)</td>
+    <td><%=resultado83%></td>
+    <td><%=resultado84%></td>
+    <td><%=resultado85%></td>
+    <td><%=resultado86%></td>
+    <td><%=resultado213%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >FECHA CONTROLES:<br></td>
+    <td><%=resultado87%></td>
+    <td><%=resultado88%></td>
+    <td><%=resultado89%></td>
+    <td><%=resultado90%></td>
+    <td><%=resultado214%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >CONTROLADO POR:<br></td>
+    <td><%=resultado91%></td>
+    <td><%=resultado92%></td>
+    <td><%=resultado93%></td>
+    <td><%=resultado94%></td>
+    <td><%=resultado215%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  rowspan="2">AJUSTE REALIZADO:<br></td>
+    <td rowspan="2"><%=resultado95%></td>
+    <td rowspan="2"><%=resultado96%></td>
+    <td rowspan="2"><%=resultado97%></td>
+    <td rowspan="2"><%=resultado98%></td>
+    <td rowspan="2"><%=resultado216%></td>
+  </tr>
+  <tr>
+  </tr>
+  <tr>
+    <td class="tabla_4"  rowspan="4">V°B°<br>PLANOS<br></td>
+    <td class="tabla_4" ></td>
+    <td class="tabla_4" >NOMBRE</td>
+    <td class="tabla_4" >FECHA</td>
+    <td class="tabla_4"  colspan="2">CARGO</td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >DESARROLLADO POR:<br></td>
+    <td><%=resultado99%></td>
+    <td><%=resultado100%></td>
+    <td colspan="2"><%=resultado101%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >VERIFICADO POR:<br></td>
+    <td><%=resultado102%></td>
+    <td><%=resultado103%></td>
+    <td colspan="2"><%=resultado104%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >VALIDADO POR:<br></td>
+    <td><%=resultado105%></td>
+    <td><%=resultado106%></td>
+    <td colspan="2"><%=resultado107%></td>
+  </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                     <!--  FINAL  Diseño de Proyecto  (Diseño de Compuestos)  -->
+
+
+                        <!-- INICIO   Cotizacion Proyecto  (Area Comercial)  -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            4) Cotizacion Proyecto  (Area Comercial) 
+                            <% if (vpermiso4){ %>
+                            <button class="btn btn-success " style="float: right;margin-right: 5px;margin-top: -2px;" 
+                            id="4" onClick="reply_click(this.id)">Editar</button>
+                            <%} %>
+                        </div>
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered table-striped">
+                                
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                          <tr>
+    <th></th>
+    <th class="tabla_4" >NOMBRE</th>
+    <th class="tabla_4" >FECHA</th>
+    <th class="tabla_4" >CARGO</th>
+  </tr>
+  <tr>
+    <td class="tabla_4" >ENTREGA DE ANTECEDENTES:<br></td>
+    <td><%=resultado109%></td>
+    <td><%=resultado110%></td>
+    <td><%=resultado111%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >REALIZACION DE COTIZACION:<br></td>
+    <td><%=resultado112%></td>
+    <td><%=resultado113%></td>
+    <td><%=resultado114%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >VALIDACION DE COTIZACION:<br></td>
+    <td><%=resultado115%></td>
+    <td><%=resultado116%></td>
+    <td><%=resultado117%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >APROBACION DE COTIZACION /O.C: <br></td>
+    <td><%=resultado118%></td>
+    <td><%=resultado119%></td>
+    <td><%=resultado120%></td>
+  </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                     <!--  FINAL  Cotizacion Proyecto  (Area Comercial)  -->
+
+
+
+                    <!-- INICIO   Desarrollo del Proyecto (Area Produccion)  -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            5) Desarrollo del Proyecto (Area Produccion) 
+                            <% if (vpermiso5){ %>
+                            <button class="btn btn-success " style="float: right;margin-right: 5px;margin-top: -2px;" 
+                            id="5" onClick="reply_click(this.id)">Editar</button>
+                            <%} %>
+                        </div>
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered table-striped">
+                                
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                          <tr>
+    <th colspan="2"></th>
+    <th class="tabla_4" >FECHA<br>INICIO<br></th>
+    <th class="tabla_4" >FECHA<br>TERMINO<br></th>
+    <th class="tabla_4" >RESPONSABLE DEL <br>PROCESO<br></th>
+    <th class="tabla_4" >VALIDADO<br>POR:<br></th>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">PREPARACION COMPUESTO PU:<br></td>
+    <td><%=resultado121%></td>
+    <td><%=resultado122%></td>
+    <td><%=resultado123%></td>
+    <td><%=resultado124%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">PREPARACION COMPUESTO GOMA:<br></td>
+    <td><%=resultado125%></td>
+    <td><%=resultado126%></td>
+    <td><%=resultado127%></td>
+    <td><%=resultado128%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">FABRIACION INSUMOS:<br></td>
+    <td><%=resultado129%></td>
+    <td><%=resultado130%></td>
+    <td><%=resultado131%></td>
+    <td><%=resultado132%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">GRANALLADO INSUMOS:<br></td>
+    <td><%=resultado133%></td>
+    <td><%=resultado134%></td>
+    <td><%=resultado135%></td>
+    <td><%=resultado136%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">PINTADO Y ADHESIVADO INSUMOS:<br></td>
+    <td><%=resultado137%></td>
+    <td><%=resultado138%></td>
+    <td><%=resultado139%></td>
+    <td><%=resultado140%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">PRODUCCION SECCION PU:<br></td>
+    <td><%=resultado141%></td>
+    <td><%=resultado142%></td>
+    <td><%=resultado143%></td>
+    <td><%=resultado144%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">PRODUCCION SECCION GOMAS:<br></td>
+    <td><%=resultado146%></td>
+    <td><%=resultado147%></td>
+    <td><%=resultado148%></td>
+    <td><%=resultado149%></td>
+  </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                     <!--  FINAL  Desarrollo del Proyecto (Area Produccion)  -->
+
+
+                    <!-- INICIO Control Calidad del Proyecto (Area Control de Calidad)  -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            6) Control Calidad del Proyecto (Area Control de Calidad)
+                            <% if (vpermiso6){ %>
+                            <button class="btn btn-success " style="float: right;margin-right: 5px;margin-top: -2px;" 
+                            id="6" onClick="reply_click(this.id)">Editar</button>
+                            <%} %>
+                        </div>
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered table-striped">
+                                
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                          
+<tr>
+    <th colspan="2" class="tabla_4"></th>
+    <th class="tabla_4" >FECHA<br>REALIZACION<br></th>
+    <th class="tabla_4" >RESPONSABLE DEL <br>PROCESO<br></th>
+    <th class="tabla_4" >VALIDADO<br>POR:<br></th>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">CURVAS REOMETRICA:<br></td>
+    <td><%=resultado150%></td>
+    <td><%=resultado151%></td>
+    <td><%=resultado152%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">ENSAYOS FISICOS EN LABORATORIO:<br></td>
+    <td><%=resultado153%></td>
+    <td><%=resultado154%></td>
+    <td><%=resultado155%></td>
+  </tr
+  <tr>
+    <td class="tabla_4"  colspan="2">CONTROL DIMENSIONAL:<br></td>
+    <td><%=resultado156%></td>
+    <td><%=resultado157%></td>
+    <td><%=resultado158%></td>
+  </tr>
+  <tr>
+    <td  class="tabla_4" colspan="2">ENSAYOS FISICOS EXTERNALIZADOS:<br></td>
+    <td><%=resultado159%></td>
+    <td><%=resultado160%></td>
+    <td><%=resultado161%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">LIBERACION REALIZADA POR CLIENTE:<br></td>
+    <td><%=resultado162%></td>
+    <td><%=resultado163%></td>
+    <td><%=resultado164%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">LIBERACION PRODUCTO TERMINADO:<br></td>
+    <td><%=resultado165%></td>
+    <td><%=resultado166%></td>
+    <td><%=resultado167%></td>
+  </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                     <!--  FINAL  Control Calidad del Proyecto (Area Control de Calidad)  -->
+
+
+                    <!-- INICIO Despacho del Proyecto (Area Logistica) -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            7) Despacho del Proyecto (Area Logistica)
+                            <% if (vpermiso7){ %>
+                            <button class="btn btn-success " style="float: right;margin-right: 5px;margin-top: -2px;" 
+                            id="7" onClick="reply_click(this.id)">Editar</button>
+                            <%} %>
+                        </div>
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered table-striped">
+                                
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                          
+<tr>
+    <th colspan="2" class="tabla_4"></th>
+    <th class="tabla_4" >FECHA<br>REALIZACION<br></th>
+    <th class="tabla_4" >RESPONSABLE DEL <br>PROCESO<br></th>
+    <th class="tabla_4" >VALIDADO<br>POR:<br></th>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">TRAZADO DE RUTAS:<br></td>
+    <td><%=resultado168%></td>
+    <td><%=resultado169%></td>
+    <td><%=resultado170%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">TRANSPORTE:<br></td>
+    <td><%=resultado171%></td>
+    <td><%=resultado172%></td>
+    <td><%=resultado173%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">RECEPCION GUIAS O FACTURAS:<br></td>
+    <td><%=resultado174%></td>
+    <td><%=resultado175%></td>
+    <td><%=resultado176%></td>
+  </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                     <!--  FINAL  Despacho del Proyecto (Area Logistica)  -->
+
+
+                     <!-- INICIO Validacion Salidas Proyecto (Area Comercial) -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            8) Validacion Salidas Proyecto (Area Comercial)
+                            <% if (vpermiso8){ %>
+                            <button class="btn btn-success " style="float: right;margin-right: 5px;margin-top: -2px;" 
+                            id="8" onClick="reply_click(this.id)">Editar</button>
+                            <%} %>
+                        </div>
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered table-striped">
+                                
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                          
+<tr>
+    <th class="tabla_4"  rowspan="2">CUMPLE<br>SATISFACTORIAMENTE<br></th>
+    <th><%=resultado177%></th>
+    <th><%=resultado178%></th>
+    <th><%=resultado179%></th>
+    <th colspan="2"><%=resultado180%></th>
+  </tr>
+  <tr>
+    <td class="tabla_4" >CONTROLES</td>
+    <td class="tabla_4" >VERIFICACIONES</td>
+    <td class="tabla_4" >VALIDACIONES</td>
+    <td class="tabla_4"  colspan="2">RESPONSABLES</td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  rowspan="2">CUMPLE<br>REQUISITOS<br></td>
+    <td><%=resultado181%></td>
+    <td><%=resultado182%></td>
+    <td><%=resultado183%></td>
+    <td><%=resultado184%></td>
+    <td><%=resultado185%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4" >FUNCIONALES</td>
+    <td class="tabla_4" >DESEMPEÑO</td>
+    <td class="tabla_4" >NORMATIVOS</td>
+    <td class="tabla_4" >LEGALES</td>
+    <td class="tabla_4" >REGLAMENTARIOS</td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  rowspan="2">NO CUMPLE<br>REQUISITOS<br></td>
+    <td class="tabla_4"  colspan="2">ACCION CORRECTIVA:<br></td>
+    <td colspan="3"><%=resultado186%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">FOLIO ACCION CORRECTIVA<br></td>
+    <td colspan="3"><%=resultado187%></td>
+  </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                     <!--  FINAL  Validacion Salidas Proyecto (Area Comercial)  -->
+
+                     <!-- INICIO Validacion  Validacion Final Cliente (Area Comercial) -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            9) Validacion  Validacion Final Cliente (Area Comercial)
+                            <% if (vpermiso9){ %>
+                            <button class="btn btn-success " style="float: right;margin-right: 5px;margin-top: -2px;" 
+                            id="9" onClick="reply_click(this.id)">Editar</button>
+                            <%} %>
+                        </div>
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered table-striped">
+                                
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                          
+<tr>
+    <th class="tabla_4"  colspan="2" rowspan="4">V° B°<br>CLIENTE:<br></th>
+    <th class="tabla_4"  colspan="3">NOMBRE QUIEN VALIDA:<br></th>
+    <th class="tabla_4"  colspan="3">AREA O SECTOR PUESTA EN USO:<br></th>
+  </tr>
+  <tr>
+    <td colspan="3"><%=resultado188%></td>
+    <td colspan="3"><%=resultado189%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2" rowspan="2">MEDIO VALIDACION:<br></td>
+    <td class="tabla_4" >MAIL:</td>
+    <td><%=resultado190%></td>
+    <td class="tabla_4" >FECHA ENVIO:<br></td>
+    <td><%=resultado192%></td>
+  </tr>
+  <tr>
+    <td class="tabla_4">N° FACTURA:</td>
+    <td><%=resultado191%></td>
+    <td class="tabla_4">FECHA PAGO:<br></td>
+    <td><%=resultado193%></td>
+  </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                     <!--  FINAL  Validacion Final Cliente (Area Comercial)  -->
+
+
+                    <!-- INICIO  Control de Cambios Internos o Externos (Area Ingenieria y Proyectos) -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            10) Control de Cambios Internos o Externos (Area Ingenieria y Proyectos)
+                            <% if (vpermiso10){ %>
+                            <button class="btn btn-success " style="float: right;margin-right: 5px;margin-top: -2px;" 
+                            id="10" onClick="reply_click(this.id)">Editar</button>
+                            <%} %>
+                        </div>
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered table-striped">
+                                
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                          
+<tr>
+    <th class="tabla_4"  rowspan="2">N° REVISION<br></th>
+    <th class="tabla_4"  colspan="2" rowspan="2">CAMBIO SOLICITADO :<br></th>
+    <th colspan="4" rowspan="2"><%=resultado196%></th>
+  </tr>
+  <tr>
+  </tr>
+  <tr>
+    <td rowspan="4">
+        <% if (resultado196 == "NAP"){ %>
+        NAP
+        <%} else { %>
+        <%=resultado217%>
+        <%} %>
+    </td>
+    <td class="tabla_4"  colspan="2">NUEVO CODIGO:<br></td>
+    <td  class="tabla_4" colspan="2">FECHA SOLICITUD CAMBIO: <br></td>
+    <td  class="tabla_4" colspan="2">FECHA CIERRE CAMBIO:<br></td>
+  </tr>
+  <tr>
+    <td colspan="2"><%=resultado200%></td>
+    <td colspan="2"><%=resultado194%></td>
+    <td colspan="2"><%=resultado195%></td>
+
+  </tr>
+  <tr>
+    <td class="tabla_4"  colspan="2">DESARROLLADO POR:<br></td>
+    <td class="tabla_4"  colspan="2">VERIFICADO POR:<br></td>
+    <td class="tabla_4"  colspan="2">VALIDADO POR:<br></td>
+  </tr>
+  <tr>
+    <td colspan="2"><%=resultado199%></td>
+    <td colspan="2"><%=resultado197%></td>
+    <td colspan="2"><%=resultado198%></td>
+
+  </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                     <!--  FINAL  Control de Cambios Internos o Externos (Area Ingenieria y Proyectos)  -->
+
+                </div>
+                        
+                </div>
+        </div>
+    </div>
+    <!-- CONTENT-WRAPPER SECTION END-->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    &copy; 2016 BUSANC | Por : Diego Eduardo Escobar Boehmwald   
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER SECTION END-->
+    <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY SCRIPTS -->
+    <script src="./../assets/js/jquery-1.11.1.js"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="./../assets/js/bootstrap.js"></script>
+</body>
+</html>

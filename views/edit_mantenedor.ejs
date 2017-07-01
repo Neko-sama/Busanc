@@ -1,0 +1,309 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>Registros - Busanc</title>
+    <!-- BOOTSTRAP CORE STYLE  -->
+    <link href="./../assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONT AWESOME ICONS  -->
+    <link href="./../assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE  -->
+    <link href="./../assets/css/style.css" rel="stylesheet" />
+    <link href="./../assets/css/busanc.css" rel="stylesheet" />
+     <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+</head>
+<body>
+    <% include header.ejs %>
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="page-head-line">
+                        Editar Mantenedor N°  <%=title %>
+                        <a href="/mantenedores.html">
+                            <button class="btn btn-primary " style="float: right;margin-right: 5px;margin-top: -2px;">Volver</button>
+                        </a>
+                    </h4>
+                </div>
+            </div>
+
+            <div class="panel-body">
+                <form action="/edit_mantenedor.html/alter" method="post" class="panel-body">
+                    <fieldset>
+                        <label>Nombre : </label>
+                        <input type="text" name="nombre"  class="form-control"  value="<%=nombre %>"/>
+                        <label>Apellido : </label>
+                        <input type="text" name="apellido"  class="form-control"  value="<%=apellido %>"/>
+                        <label>Correo : </label>
+                        <input type="text" name="correo"  class="form-control" value="<%=correo %>" />
+                        
+                        
+
+                        <br />
+                        <br />
+
+                        <table class="tg">
+                            <tr>
+                                <th class="tg-yw4l">
+                                    <label>Cuentas : </label>
+                                    <br />
+                                    <% if (cuentas == "true"){ %>
+                                    <select name="cuentas">
+                                        <option value="1" selected="selected">SI</option>
+                                        <option value="0">NO</option>
+                                    </select>
+                                    <% } else {%>
+                                    <select name="cuentas">
+                                        <option value="1">SI</option>
+                                        <option value="0" selected="selected">NO</option>
+                                    </select>
+                                    <% } %>
+                                </th>
+                                <th class="tg-yw4l">
+                                    <label>Permiso 0 : </label>
+                                    <br />
+                                    <% if (vpermiso0 == "true"){ %>
+                                    <select name="p0">
+                                        <option value="1" selected="selected">SI</option>
+                                        <option value="0">NO</option>
+                                    </select>
+                                    <% } else {%>
+                                    <select name="p0">
+                                        <option value="1">SI</option>
+                                        <option value="0" selected="selected">NO</option>
+                                    </select>
+                                    <% } %>
+                                </th>
+                                <th class="tg-yw4l">
+                                    <label>Permiso 1 : </label>
+                                    <br />
+                                    <% if (vpermiso1 == "true"){ %>
+                                    <select name="p1">
+                                        <option value="1" selected="selected">SI</option>
+                                        <option value="0">NO</option>
+                                    </select>
+                                    <% } else {%>
+                                    <select name="p1">
+                                        <option value="1">SI</option>
+                                        <option value="0" selected="selected">NO</option>
+                                    </select>
+                                    <% } %>
+
+                                </th>
+                                <th class="tg-yw4l">
+                                    <label>Permiso 2_1 : </label>
+                                    <br />
+                                    <% if (vpermiso2_1 == "true"){ %>
+                                    <select name="p2_1">
+                                        <option value="1" selected="selected">SI</option>
+                                        <option value="0">NO</option>
+                                    </select>
+                                    <% } else {%>
+                                    <select name="p2_1">
+                                        <option value="1">SI</option>
+                                        <option value="0" selected="selected">NO</option>
+                                    </select>
+                                    <% } %>
+
+                                </th>
+                                <th class="tg-yw4l">
+                                    <label>Permiso 2_2 : </label>
+                                    <br />
+
+                                    <% if (vpermiso2_2 == "true"){ %>
+                                    <select name="p2_2">
+                                        <option value="1" selected="selected">SI</option>
+                                        <option value="0">NO</option>
+                                    </select>
+                                    <% } else {%>
+                                    <select name="p2_2">
+                                        <option value="1">SI</option>
+                                        <option value="0" selected="selected">NO</option>
+                                    </select>
+                                    <% } %>
+                                </th>
+                                <th class="tg-yw4l">
+                                    <label>Permiso 3_1 : </label>
+                                    <br />
+                                    <% if (vpermiso3_1 == "true"){ %>
+                                    <select name="p3_1">
+                                        <option value="1" selected="selected">SI</option>
+                                        <option value="0">NO</option>
+                                    </select>
+                                    <% } else {%>
+                                    <select name="p3_1">
+                                        <option value="1">SI</option>
+                                        <option value="0" selected="selected">NO</option>
+                                    </select>
+                                    <% } %>
+                                </th>
+                                <th class="tg-yw4l">
+                                    <label>Permiso 3_2 : </label>
+
+                                    <br />
+                                    <% if (vpermiso3_2 == "true"){ %>
+                                    <select name="p3_2">
+                                        <option value="1" selected="selected">SI</option>
+                                        <option value="0">NO</option>
+                                    </select>
+                                    <% } else {%>
+                                    <select name="p3_2">
+                                        <option value="1">SI</option>
+                                        <option value="0" selected="selected">NO</option>
+                                    </select>
+                                    <% } %>
+                                </th>
+
+                            </tr>
+                            <tr>
+                                <th class="tg-yw4l">
+                                    <label>Permiso 4 : </label>
+                                    <br />
+                                    <% if (vpermiso4 == "true"){ %>
+                                    <select name="p4">
+                                        <option value="1" selected="selected">SI</option>
+                                        <option value="0">NO</option>
+                                    </select>
+                                    <% } else {%>
+                                    <select name="p4">
+                                        <option value="1">SI</option>
+                                        <option value="0" selected="selected">NO</option>
+                                    </select>
+                                    <% } %>
+                                </th>
+                                <th class="tg-yw4l">
+                                    <label>Permiso 5 : </label>
+                                    <br />
+                                    <% if (vpermiso5 == "true"){ %>
+                                    <select name="p5">
+                                        <option value="1" selected="selected">SI</option>
+                                        <option value="0">NO</option>
+                                    </select>
+                                    <% } else {%>
+                                    <select name="p5">
+                                        <option value="1">SI</option>
+                                        <option value="0" selected="selected">NO</option>
+                                    </select>
+                                    <% } %>
+                                </th>
+                                <th class="tg-yw4l">
+                                    <label>Permiso 6 : </label>
+                                    <br />
+                                    <% if (vpermiso6 == "true"){ %>
+                                    <select name="p6">
+                                        <option value="1" selected="selected">SI</option>
+                                        <option value="0">NO</option>
+                                    </select>
+                                    <% } else {%>
+                                    <select name="p6">
+                                        <option value="1">SI</option>
+                                        <option value="0" selected="selected">NO</option>
+                                    </select>
+                                    <% } %>
+                                </th>
+                                <th class="tg-yw4l">
+                                    <label>Permiso 7 : </label>
+                                    <br />
+                                    <% if (vpermiso7 == "true"){ %>
+                                    <select name="p7">
+                                        <option value="1" selected="selected">SI</option>
+                                        <option value="0">NO</option>
+                                    </select>
+                                    <% } else {%>
+                                    <select name="p7">
+                                        <option value="1">SI</option>
+                                        <option value="0" selected="selected">NO</option>
+                                    </select>
+                                    <% } %>
+                                </th>
+                                <th class="tg-yw4l">
+                                    <label>Permiso 8 : </label>
+                                    <br />
+                                    <% if (vpermiso8 == "true"){ %>
+                                    <select name="p8">
+                                        <option value="1" selected="selected">SI</option>
+                                        <option value="0">NO</option>
+                                    </select>
+                                    <% } else {%>
+                                    <select name="p8">
+                                        <option value="1">SI</option>
+                                        <option value="0" selected="selected">NO</option>
+                                    </select>
+                                    <% } %>
+                                </th>
+                                <th class="tg-yw4l">
+                                    <label>Permiso 9 : </label>
+                                    <br />
+
+                                    <% if (vpermiso9 == "true"){ %>
+                                    <select name="p9">
+                                        <option value="1" selected="selected">SI</option>
+                                        <option value="0">NO</option>
+                                    </select>
+                                    <% } else {%>
+                                    <select name="p9">
+                                        <option value="1">SI</option>
+                                        <option value="0" selected="selected">NO</option>
+                                    </select>
+                                    <% } %>
+                                </th>
+                                <th class="tg-yw4l">
+                                    <label>Permiso 10 : </label>
+                                    <br />
+                                    <% if (vpermiso10 == "true"){ %>
+                                    <select name="p10">
+                                        <option value="1" selected="selected">SI</option>
+                                        <option value="0">NO</option>
+                                    </select>
+                                    <% } else {%>
+                                    <select name="p10">
+                                        <option value="1">SI</option>
+                                        <option value="0" selected="selected">NO</option>
+                                    </select>
+                                    <% } %>
+                                </th>
+                            </tr>
+
+                        </table>
+                        <br></br>
+                        <input type="submit" class="btn btn-success" value="Guardar"></input>&nbsp;
+                    </fieldset>
+                </form>                
+            </div>
+        </div>
+    </div>
+    <!-- CONTENT-WRAPPER SECTION END-->
+
+    
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    &copy; 2016 BUSANC | Por : Diego Eduardo Escobar Boehmwald   
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER SECTION END-->
+    <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY SCRIPTS -->
+    <script src="./../assets/js/jquery-1.11.1.js"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="./../assets/js/bootstrap.js"></script>
+</body>
+</html>

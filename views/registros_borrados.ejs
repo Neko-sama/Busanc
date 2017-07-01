@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>Registros Borrados - Busanc</title>
+    <!-- BOOTSTRAP CORE STYLE  -->
+    <link href="./../assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONT AWESOME ICONS  -->
+    <link href="./../assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE  -->
+    <link href="./../assets/css/style.css" rel="stylesheet" />
+     <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+function getid(elem){
+    var url = $(elem).closest('tr').find('button').attr('id');
+    url = "/modificacion.html/id/" + url;
+    window.location.replace(url);
+}
+  </script>
+</head>
+<body>
+    <% include header.ejs %>
+    <div class="content-wrapper">
+        <div class="container">
+             <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-head-line">Registros BORRADOS</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="container">
+    <!--<div class="row">
+        <div class="col-md-12">
+            <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <input type="text" class="form-control input-lg" placeholder="Buscar" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>-->
+</div>
+                    <div class="col-md-12">
+                        <hr />
+
+                                <table id="registros" class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>N° SOLICITUD</th>
+                                            <th>CODIGO DE PROYECTO</th>
+                                            <th>NOMBRE PROYECTO INGENIERIA</th>
+                                            <th>NOMBRE DE INGRESO</th>
+                                            <th>NOMBRE VENDEDOR</th>
+                                            <th>FECHA INGRESO</th>
+                                            <th>CLIENTE</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                       <% for(var i=(num-1); i>=0; i--){ %>
+                                        <tr>
+                                            <td><%=arr_ids[i]; %></td>
+                                            <td><%=arr_codigo[i]; %></td>
+                                            <td><%=arr_proyecto[i]; %></td>
+                                            <td><%=arr_nombres_pro[i]; %></td>
+                                            <td><%=arr_creacion[i]; %></td>
+                                            <td><%=arr_fechas_ing[i]; %></td>
+                                            <td><%=arr_nombres_cli[i]; %></td>
+                                             
+                                            <td>
+                                            <!--button class="btn btn-default btn-xs"><i class=" fa fa-file "></i> Update</button-->
+                                            <button id="<%=arr_ids[i]; %>" onclick="getid(this)" class="btn btn-primary btn-xs"><i class="fa fa-edit "></i> Editar</button>
+                                             </td>
+                                        </tr>
+                                        <%} %>
+                                    </tbody>
+                                </table>
+                                <!--div>
+                                    <ul class="pagination">
+                                        <li class="disabled"><a href="#">«</a></li>
+                                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">»</a></li>
+                                    </ul>
+                                </div-->
+                            <a href="/registros.html"  class="btn btn-primary btn-lg" style="float: right;margin-top: 10px; border-radius: 10px;font-size: 18px;;">
+                              Registros Normales
+                            </a>
+                            
+                            </div>
+
+                    </div>
+                </div>
+
+            </div>
+                    
+                
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    &copy; 2016 BUSANC | Por : Diego Eduardo Escobar Boehmwald   
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER SECTION END-->
+    <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY SCRIPTS -->
+    <script src="./../assets/js/jquery-1.11.1.js"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="./../assets/js/bootstrap.js"></script>
+</body>
+</html>

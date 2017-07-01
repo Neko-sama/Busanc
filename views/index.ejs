@@ -1,0 +1,498 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Home - Busanc</title>
+
+    <link href="./../assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <link href="./../assets/css/font-awesome.css" rel="stylesheet" />
+
+    <link href="./../assets/css/style.css" rel="stylesheet" />
+    <link href="./../assets/css/busanc.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+<script>
+
+function get_today(elem){
+    var today = new Date();
+    document.getElementById('time').innerHTML=today;
+}
+</script>
+    <script>
+    function uploadFile() {
+      var ACCESS_TOKEN = document.getElementById('access-token').value;
+      var dbx = new Dropbox({ accessToken: ACCESS_TOKEN });
+      var fileInput = document.getElementById('file-upload');
+      var file = fileInput.files[0];
+      dbx.filesUpload({path: '/' + file.name, contents: file})
+        .then(function(response) {
+          var results = document.getElementById('results');
+          results.appendChild(document.createTextNode('File uploaded!'));
+          console.log(response);
+        })
+        .catch(function(error) {
+          console.error(error);
+        });
+      return false;
+    }
+    </script>
+</head>
+
+<body>
+    <% include header.ejs %>
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="page-head-line">Solicitud de cliente</h4>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-12">
+                     <div class="Compose-Message">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                SOLICITUD DE CLIENTE
+                            </div>
+                            <form action="index.html/" method="post" class="panel-body" enctype="multipart/form-data">
+
+                                    <table style="width:100%">
+                                        <tr>
+                                            <th style="width: 539px;">Nueva solicitud de proyecto </th>
+                                            <th>Entrada del proyecto</th>
+                                        </tr>
+                                        <tr>
+                                            <td><label>Fecha de entrega de Cotización  : </label></td>
+                                            <td><label>Requisitos funcionales : </label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input required type="date" name="fecham" class="control_input"  /></td>
+                                            <td><input required type="text" name="reqfun" class="control_input" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label for="name">Nombre del Proyecto  : </label></td>
+                                            <td><label>Requisitos de desempeño : </label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input required type="text" name="nproyecto" class="control_input"  /></td>
+                                            <td><input required type="text" name="reqdes" class="control_input" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>Nombre del Cliente  :  </label></td>
+                                            <td><label for="reqnor">Requisito normativo : </label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><select id="cliente1" class="js-example-basic-multiple" name="ncliente"  >
+                                                    <% for(var i=0; i<num; i++){ %>
+                                                    <option value="<%=arr_clientes[i]%>"><%=arr_clientes[i]%></option>
+                                                    <%} %>
+                                                </select></td>
+                                            <td><input required type="text" name="reqnor" class="control_input" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td><label>Requisitos legales :  </label></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            </td>
+                                            <td><input required type="text" name="reqleg" class="control_input" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>Area :  </label></td>
+                                            <td><label>Requisitos reglamentarios:  </label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input required type="text" name="area" class="control_input" /></td>
+                                            <td><input required type="text" name="reqreg" class="control_input" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><br></td>
+                                            <td><br></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>Fecha Visita :  </label></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input required type="date" name="fechav" class="control_input" /></td>
+                                            <td><label>Muestra Fisica :  </label> <select name="muefis" id="muefis">
+                                            <option value ="1">SI</option>
+                                            <option value ="0">NO</option>
+                                            <option value ="null" selected="selected">NAP</option>
+                                            </select></td>
+                                        </tr>
+                                        <tr>
+                                            <td><!--<label>Descripción del proyecto : </label>--></td>
+                                            <td><label id="muefis1">Muestra Fisica - Enviado por :  </label> </td>
+                                        </tr>
+
+                                        <tr>
+                                            
+                                            <td></td>
+                                            <td><input  id="muefis2" type="text" name="muefispor" class="control_input" /> </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td><label id="muefis4">Muestra Fisica - Observación :  </label> </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td></td>
+                                            <td><input  id="muefis5" type="text" name="muefis_obs" class="control_input" /> </td>
+                                        </tr>
+                                            <tr>
+                                                <td>    </td>
+                                                <td>
+                                                <input id="muefis3"  type="file" name="muefis3" /> 
+                                                <!--<input required id="muefis4" type="file" name="muefis3" /> 
+                                                <input required id="muefis5" type="file" name="muefis3" /> 
+                                                <input required id="muefis6" type="file" name="muefis3" /> 
+                                                <input required id="muefis7" type="file" name="muefis3" />--> 
+                                                </td>
+                                            </tr>
+
+                                        <tr>
+                                            <td><br></td>
+                                            <td><br></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>Fotografias:  </label>
+                                            <select name="fot" id="fot" onchange="change(this)">
+                                            <option value ="1">SI</option>
+                                            <option value ="0">NO</option>
+                                            <option value ="null" selected="selected">NAP</option>
+                                            </select></td>
+
+
+                                            <td><label>Levantamientos Y/O medidas <select name="levmed" id="levmed">
+                                            <option value ="1">SI</option>
+                                            <option value ="0">NO</option>
+                                            <option value ="null" selected="selected">NAP</option>
+                                            </select></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label id="fot1">Fotografias - Enviado por :  </label></td>
+                                            <td><label id="levmed1">Levantamientos Y/O medidas - Enviado por :  </label> </td>
+                                        </tr>
+                                        <tr>
+                                            <td><input  id="fot2" type="text" name="fotpor" class="control_input" /> </td>
+                                            <td><input  id="levmed2" type="text" name="levmedpor" class="control_input" /> </td>
+                                        </tr>
+                                        <tr>
+                                            <td><label id="fot4">Fotografias - Observación :  </label></td>
+                                            <td><label id="levmed4">Levantamientos Y/O medidas - Observación :  </label> </td>
+                                        </tr>
+                                        <tr>
+                                            <td><input  id="fot5" type="text" name="fot_obs" class="control_input" /> </td>
+                                            <td><input  id="levmed5" type="text" name="levmed_obs" class="control_input" /> </td>
+                                        </tr>
+                                        <tr>
+                                            <tr>
+                                                <td>
+                                                    <input id="fot3" type="file" name="fot3"/>   
+                                                    <!--<input required id="fot4" type="file" name="fot3" />   
+                                                    <input required id="fot5" type="file" name="fot3" />   
+                                                    <input required id="fot6" type="file" name="fot3" />   
+                                                    <input required id="fot7" type="file" name="fot3" />-->   
+                                                 </td>
+                                                <td>
+                                                    <input id="levmed3" type="file" name="levmed3" /> 
+                                                    <!--<input required id="levmed4" type="file" name="levmed3" /> 
+                                                    <input required id="levmed5" type="file" name="levmed3" /> 
+                                                    <input required id="levmed6" type="file" name="levmed3" /> 
+                                                    <input required id="levmed7" type="file" name="levmed3" />--> 
+                                                </td>
+                                            </tr>
+
+                                        <tr>
+                                            <td><br></td>
+                                            <td><br></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>Planos Adjuntos </label> <select name="plaadj" id="plaadj">
+                                            <option value ="1">SI</option>
+                                            <option value ="0">NO</option>
+                                            <option value ="null" selected="selected">NAP</option>
+                                            </select></td>
+                                            <td><label>Mail de respaldo  </label> <select name="mailres" id="mailres">
+                                            <option value ="1">SI</option>
+                                            <option value ="0">NO</option>
+                                            <option value ="null" selected="selected">NAP</option>
+                                            </select></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label id="plaadj1">Planos Adjuntos - Enviado por :  </label> </td>
+                                            <td><label id="mailres1">Mail de respaldo  - Enviado por :  </label> </td>
+                                        </tr>
+                                        <tr>
+                                            <td><input  id="plaadj2" type="text" name="plaadjpor" class="control_input"/></td>
+                                            <td><input  id="mailres2" type="text" name="mailrespor" class="control_input"/> </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><label id="plaadj4">Planos Adjuntos - Observación :  </label> </td>
+                                            <td> </td>
+                                            <!--<label id="mailres4">Mail de respaldo  - Observación :  </label>-->
+                                        </tr>
+                                        <tr>
+                                            <td><input  id="plaadj5" type="text" name="plaadj_obs" class="control_input" /></td>
+                                            <td> </td>
+                                            <!--<input required id="mailres5" type="text" name="mailres_obs" class="control_input" />-->
+                                        </tr>
+
+                                        <tr>
+                                            <tr>
+                                                <td>
+                                                    <input id="plaadj3" type="file" name="plaadj3" />
+                                                    <!--<input required id="plaadj4" type="file" name="plaadj3" /> 
+                                                    <input required id="plaadj5" type="file" name="plaadj3" /> 
+                                                    <input required id="plaadj6" type="file" name="plaadj3" /> 
+                                                    <input required id="plaadj7" type="file" name="plaadj3" />-->    
+                                                 </td>
+                                                <td>
+                                                    <input id="mailres3" type="file" name="mailres3"/> 
+                                                    <!--<input required id="mailres4" type="file" name="mailres3" /> 
+                                                    <input required id="mailres5" type="file" name="mailres3" /> 
+                                                    <input required id="mailres6" type="file" name="mailres3" /> 
+                                                    <input required id="mailres7" type="file" name="mailres3" />--> 
+                                                </td>
+                                            </tr>
+
+                                        <tr>
+                                            <td><br></td>
+                                            <td><br></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>Descripción de Especificaciones tecnicas</label></td>
+                                            <td><label>Potenciales fallas  </label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input required type="text" name="esptec" class="control_input"/></td>
+                                            <td><input required type="text" name="potfal" class="control_input"/> </td>
+                                        </tr>
+
+
+
+
+
+
+                                    </table>
+
+
+
+                                    <hr />
+                                    <input required type="submit" class="btn btn-success" value="Guardar"></input>&nbsp;
+                            </form>
+                            <br/>
+                            <div class="panel-footer text-muted">
+                                <strong>Nota : </strong>Se recuerda que todos los mensajes se registran, favor de no llenar de spam.
+                                <br/> 
+                                <strong>Nota : </strong>Se recuerda que crear un nuevo proyecto notificara por correo a los responsables correspondientes.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    &copy; 2016 BUSANC | Por : Diego Eduardo Escobar Boehmwald
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <script src="./../assets/js/jquery-1.11.1.js"></script>
+    <script src="./../assets/js/bootstrap.js"></script>
+
+    
+</body>
+</html>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <script type="text/javascript">
+$(".js-example-basic-multiple").select2();
+    </script>
+    <script type="text/javascript">
+
+$(function() {
+    $('#muefis1').hide();
+    $('#muefis2').hide();
+    $('#muefis3').hide();
+    $('#muefis4').hide();
+    $('#muefis5').hide();
+    //$('#muefis6').hide();
+    //$('#muefis7').hide();
+
+    $('#muefis').change(function () {
+        if ($('#muefis').val() == '1') {
+            $('#muefis1').show();
+            $('#muefis2').show();
+            $('#muefis3').show();
+            $('#muefis4').show();
+            $('#muefis5').show();
+            //$('#muefis6').show();
+            //$('#muefis7').show();
+        } else {
+            $('#muefis1').hide();
+            $('#muefis2').hide();
+            $('#muefis3').hide();
+            $('#muefis4').hide();
+            $('#muefis5').hide();
+            //$('#muefis6').hide();
+            //$('#muefis7').hide();
+        }
+    });
+});
+    </script>  
+<!-- cdn for modernizr, if you haven't included it already -->
+<script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+<!-- polyfiller file to detect and load polyfills -->
+<script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
+<script>
+  webshims.setOptions('waitReady', false);
+  webshims.setOptions('forms-ext', {types: 'date'});
+  webshims.polyfill('forms forms-ext');
+</script>
+
+    <script type="text/javascript">
+
+$(function() {
+    $('#fot1').hide();
+    $('#fot2').hide();
+    $('#fot3').hide();
+    $('#fot4').hide();
+    $('#fot5').hide();
+    //$('#fot6').hide();
+    //$('#fot7').hide();
+
+    $('#fot').change(function () {
+        if ($('#fot').val() == '1') {
+            $('#fot1').show();
+            $('#fot2').show();
+            $('#fot3').show();
+            $('#fot4').show();
+            $('#fot5').show();
+            //$('#fot6').show();
+            //$('#fot7').show();
+        } else {
+            $('#fot1').hide();
+            $('#fot2').hide();
+            $('#fot3').hide();
+            $('#fot4').hide();
+            $('#fot5').hide();
+            //$('#fot6').hide();
+            //$('#fot7').hide();
+        }
+    });
+});
+    </script>  
+    <script type="text/javascript">
+
+$(function() {
+    $('#levmed1').hide();
+    $('#levmed2').hide();
+    $('#levmed3').hide();
+    $('#levmed4').hide();
+    $('#levmed5').hide();
+    //$('#levmed6').hide();
+    //$('#levmed7').hide();
+
+    $('#levmed').change(function () {
+        if ($('#levmed').val() == '1') {
+            $('#levmed1').show();
+            $('#levmed2').show();
+            $('#levmed3').show();
+            $('#levmed4').show();
+            $('#levmed5').show();
+            //$('#levmed6').show();
+            //$('#levmed7').show();
+        } else {
+            $('#levmed1').hide();
+            $('#levmed2').hide();
+            $('#levmed3').hide();
+            $('#levmed4').hide();
+            $('#levmed5').hide();
+            //$('#levmed6').hide();
+            //$('#levmed7').hide();
+        }
+    });
+});
+    </script>  
+    <script type="text/javascript">
+
+$(function() {
+    $('#plaadj1').hide();
+    $('#plaadj2').hide();
+    $('#plaadj3').hide();
+    $('#plaadj4').hide();
+    $('#plaadj5').hide();
+    //$('#plaadj6').hide();
+    //$('#plaadj7').hide();
+
+    $('#plaadj').change(function () {
+        if ($('#plaadj').val() == '1') {
+            $('#plaadj1').show();
+            $('#plaadj2').show();
+            $('#plaadj3').show();
+            $('#plaadj4').show();
+            $('#plaadj5').show();
+            //$('#plaadj6').show();
+            //$('#plaadj7').show();
+        } else {
+            $('#plaadj1').hide();
+            $('#plaadj2').hide();
+            $('#plaadj3').hide();
+            $('#plaadj4').hide();
+            $('#plaadj5').hide();
+            //$('#plaadj6').hide();
+            //$('#plaadj7').hide();
+        }
+    });
+});
+    </script>  
+
+    <script type="text/javascript">
+
+$(function() {
+    $('#mailres1').hide();
+    $('#mailres2').hide();
+    $('#mailres3').hide();
+    //$('#mailres4').hide();
+    //$('#mailres5').hide();
+    //$('#mailres6').hide();
+    //$('#mailres7').hide();
+
+    $('#mailres').change(function () {
+        if ($('#mailres').val() == '1') {
+            $('#mailres1').show();
+            $('#mailres2').show();
+            $('#mailres3').show();
+            //$('#mailres4').show();
+            //$('#mailres5').show();
+            //$('#mailres6').show();
+            //$('#mailres7').show();
+        } else {
+            $('#mailres1').hide();
+            $('#mailres2').hide();
+            $('#mailres3').hide();
+            //$('#mailres4').hide();
+            //$('#mailres5').hide();
+            //$('#mailres6').hide();
+            //$('#mailres7').hide();
+        }
+    });
+});
+    </script>  

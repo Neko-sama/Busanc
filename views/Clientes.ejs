@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Home - Busanc</title>
+
+    <link href="./../assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <link href="./../assets/css/font-awesome.css" rel="stylesheet" />
+
+    <link href="./../assets/css/style.css" rel="stylesheet" />
+    <link href="./../assets/css/busanc.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+</head>
+<body>
+    <% include header.ejs %>
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="page-head-line">clientes</h4>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <% if(nombre == "Patricio Jara") { %>
+                <div class="col-md-12">
+                    <div class="Compose-Message">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                CREAR CLIENTE
+                            </div>
+
+
+                            <form action="clientes/agregar" method="post" class="panel-body">
+                                <table id="registros" class="table table-striped table-bordered table-hover">
+                                    <tr>
+                                        <th style="width: 450px;"><input required type="text" name="ncliente" placeholder="Nombre del Cliente" class="control_input" /></th>
+                                        <th style="width: 152px;"><button class="btn btn-primary btn-xs " style="width: 70px; height: 34px; border-radius: 4px;"><i class="fa fa-search"></i> Crear</button></th>
+
+                                    </tr>
+                                </table>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                <%}%>
+
+                <div class="col-md-12">
+                    <div class="Compose-Message">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                CLIENTES
+                            </div>
+
+
+
+                            <table id="registros" class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 90px;">N° CLIENTE</th>
+                                        <th style="width: 100px;">NOMBRE CLIENTE</th>
+                                        <th style="width: 152px;">CREADOR</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for(var i=num-1; i>=0; i--){ %>
+                                    <tr>
+                                            <td><%=arr_cod_clientes[i]; %></td>
+                                            <td><%=arr_clientes[i]; %></td>
+                                            <td><%=arr_creadores[i]; %></td>
+                                        </tr>
+                                    <%} %>
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

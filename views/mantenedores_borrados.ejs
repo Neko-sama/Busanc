@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>Registros - Busanc</title>
+    <!-- BOOTSTRAP CORE STYLE  -->
+    <link href="./../assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONT AWESOME ICONS  -->
+    <link href="./../assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE  -->
+    <link href="./../assets/css/style.css" rel="stylesheet" />
+     <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<script>
+function borrarid(elem){
+    var url = $(elem).closest('tr').find('button').attr('id');
+    url = "/mantenedores.html/borrar/" + url;
+    window.location.replace(url);
+
+}
+
+function editid(elem){
+    var url = $(elem).closest('tr').find('button').attr('id');
+    url = "/edit_mantenedor.html/editar/" + url;
+    window.location.replace(url);
+
+}
+</script>
+
+
+</head>
+<body>
+    <% include header.ejs %>
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="row ">
+                    <div class="col-md-12">
+                        <h1 class="page-head-line">Mantenedores Borrados</h1>
+                    </div>
+                </div>
+                <div class="row col-md-12">
+                    <div class="container">
+    <!--<div class="row">
+        <div class="col-md-12">
+            <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <input type="text" class="form-control input-lg" placeholder="Buscar" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>-->
+</div>
+                    <div class="col-md-12">
+                        <hr />
+
+                                <table class="table table-striped table-bordered table-hover">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Nombre</th>
+                                            <th>Apellido</th>
+                                            <th>Correo</th>
+                                            <th>Cuentas</th>
+                                            <th>0</th>
+                                            <th>1</th>
+                                            <th>2.1</th>
+                                            <th>2.2</th>
+                                            <th>3.1</th>
+                                            <th>3.2</th>
+                                            <th>4</th>
+                                            <th>5</th>
+                                            <th>6</th>
+                                            <th>7</th>
+                                            <th>8</th>
+                                            <th>9</th>
+                                            <th>10</th>
+                                            <th>Acción</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                        <% for(var i=0; i<num; i++){ %>
+                                        <tr>
+
+                                            <th><%=arr_ids[i]; %></th>
+                                            <td><%=arr_nombres[i]; %></td>
+                                            <td><%=arr_apellidos[i]; %></td>
+                                            <td><%=arr_correos[i]; %></td>
+                                            <td><%=arr_cuentas[i]; %></td>
+                                            <td><%=arr_permiso0[i]; %></td>
+                                            <td><%=arr_permiso1[i]; %></td>
+                                            <td><%=arr_permiso2_1[i]; %></td>
+                                            <td><%=arr_permiso2_2[i]; %></td>
+                                            <td><%=arr_permiso3_1[i]; %></td>
+                                            <td><%=arr_permiso3_2[i]; %></td>
+                                            <td><%=arr_permiso4[i]; %></td>
+                                            <td><%=arr_permiso5[i]; %></td>
+                                            <td><%=arr_permiso6[i]; %></td>
+                                            <td><%=arr_permiso7[i]; %></td>
+                                            <td><%=arr_permiso8[i]; %></td>
+                                            <td><%=arr_permiso9[i]; %></td>
+                                            <td><%=arr_permiso10[i]; %></td>
+
+
+                                            <td>
+                                                <button class="btn btn-primary btn-xs" id="<%=arr_ids[i]; %>" onclick="editid(this)"   ><i class="fa fa-edit "></i> Editar</button>
+                                               
+                                            </td>
+                                        </tr>
+                                        <%} %>
+                                    </tbody>
+                                </table>
+                                <a href= "/mantenedores.html/" class="btn btn-primary btn-lg"  style="float: right;margin-top: 10px; border-radius: 10px;font-size: 18px;    margin-left: 15px;;">
+                              Ver registros normales
+                            </a>
+
+
+                            </div>
+                        </div>
+                     <!-- End  Kitchen Sink -->
+
+                </div>
+                      <!-- End  Basic Table  -->
+                </div>
+            </div>
+               
+        </div>
+    </div>
+
+    <!-- CONTENT-WRAPPER SECTION END-->
+    <footer>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    &copy; 2016 BUSANC | Por : Diego Eduardo Escobar Boehmwald   
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER SECTION END-->
+    <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY SCRIPTS -->
+    <script src="./../assets/js/jquery-1.11.1.js"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="./../assets/js/bootstrap.js"></script>
+</body>
+</html>
